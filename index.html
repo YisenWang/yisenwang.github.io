@@ -103,6 +103,9 @@ function togglebib(paperid)
     var link = paper.getElementsByTagName('a') ;
     if (bib.length > 0) {
         if (bib[0].style.display == 'none') {
+            //console.log(document.body.clientWidth);
+            width = document.body.clientWidth - 100;
+            bib[0].style.maxWidth = width + 'px';
             bib[0].style.display = 'block' ;
             //bib[0].style.textDecoration = 'underline';
             link[link.length - 1].style.textDecoration = 'underline';
@@ -177,7 +180,7 @@ function togglebib(paperid)
           <div class="text">
             <h3 style="margin-bottom:.5em; text-align:justify">Openings</h3>
             <ul>
-              <li>We are recruiting highly motivated post-docs via <a href="https://postdocs.pku.edu.cn/index.htm" target="_blank">Peking University Boya Postdoctoral Fellowship</a> (Salary 350K+), please read this <a href="recruit.html">note</a> first!</li>
+              <li>We are recruiting highly motivated postdoc via <a href="https://postdocs.pku.edu.cn/index.htm" target="_blank">Peking University Boya Postdoctoral Fellowship</a> (Salary 350K+), please read this <a href="recruit.html">note</a> first!</li>
               <li>We are always actively recruiting Ph.D. students and interns! For Prospective Students, please read this <a href="recruit.html">note</a> first!</li>
             </ul>
           </div>
@@ -210,7 +213,7 @@ function togglebib(paperid)
                 [<a href="javascript:togglebib('xin2023domainwise')">Bib</a>]<br>
                 <pre style="display: none">
                       @inproceedings{xin2023domainwise,
-                      title={Domain-wise Adversarial Training for Out-of-Distribution Generalization},
+                      title={On the Connection between Invariant Learning and Adversarial Training for Out-of-Distribution Generalization},
                       author={Shiji Xin and Yifei Wang and Jingtong Su and Yisen Wang},
                       booktitle={AAAI},
                       year={2023}}
