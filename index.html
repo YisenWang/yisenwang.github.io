@@ -1,0 +1,1355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <head>
+
+    <script src="js/head.js"></script>
+    <meta name="description" content="Yisen Wang is an Assistant Professor at Peking University">
+    <title>Yisen Wang @ Peking University</title>
+
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/main.css">
+
+<script>
+var scripts = document.getElementsByTagName('script');
+var myScript = scripts[scripts.length - 1];
+
+var queryString = myScript.src.replace(/^[^\?]+\??/, '');
+
+var params = parseQuery(queryString);
+
+var recruit = 0;
+
+function parseQuery(query) {
+    var Params = {};
+    if (!query) return Params; // return empty object
+    var Pairs = query.split(/[;&]/);
+    for (var i = 0; i < Pairs.length; i++) {
+        var KeyVal = Pairs[i].split('=');
+        if (!KeyVal || KeyVal.length != 2) continue;
+        var key = unescape(KeyVal[0]);
+        var val = unescape(KeyVal[1]);
+        val = val.replace(/\+/g, ' ');
+        Params[key] = val;
+    }
+    return Params;
+}
+
+function showPubs(id) {
+  if (id == 0) {
+   
+    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_selected').innerHTML;
+    selected = document.getElementsByClassName('selected');
+    temp = "<div class=\"text anchor\">&nbsp;</div>";
+    prefix = "<div class=\"publication\">";
+    suffix = "</div>";
+    for(var i=0;i<selected.length;i++){
+        temp += prefix + selected[i].innerHTML + suffix;
+    }
+    document.getElementById('pubs').innerHTML = temp;
+    //console.log(temp)
+
+    document.getElementById('select0').style = 'text-decoration:underline;color:#000000';
+    document.getElementById('select1').style = '';
+    document.getElementById('select2').style = '';
+  } else if (id == 1) {
+    years = ["2023", "2022", "2021", "2020", "2019", "2018"];
+    html = "";
+    for(var k=0; k<years.length; k++){
+        year = years[k];
+        selected = document.getElementsByClassName(year);
+        temp = "<div class=\"text anchor\"><h4>" + year + "</h4></div>";
+        prefix = "<div class=\"publication\">";
+        suffix = "</div>";
+        for(var i=0;i<selected.length;i++){
+            temp += prefix + selected[i].innerHTML + suffix;
+        }
+        html += temp;
+    }
+    document.getElementById('pubs').innerHTML = html;
+    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_by_date').innerHTML;
+    document.getElementById('select1').style = 'text-decoration:underline;color:#000000';
+    document.getElementById('select0').style = '';
+    document.getElementById('select2').style = '';
+  } else {
+    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_by_topic').innerHTML;
+    topics = ["SSL", "Adv", "OOD", "WSL", "Graph", "SNN"];
+    html = "";
+    for(var k=0; k<topics.length; k++){
+        topic = topics[k];
+        topic_fullname = document.getElementById("_"+topic).innerHTML;
+        selected = document.getElementsByClassName(topic);
+        temp = "<div class=\"text anchor\" id=\"" + topic + "\"><h4>" + topic_fullname + "</h4></div>";
+        prefix = "<div class=\"publication\">";
+        suffix = "</div>";
+        for(var i=0;i<selected.length;i++){
+            temp += prefix + selected[i].innerHTML + suffix;
+        }
+        html += temp;
+    }
+    document.getElementById('pubs').innerHTML = html;
+    document.getElementById('select2').style = 'text-decoration:underline;color:#000000';
+    document.getElementById('select0').style = '';
+    document.getElementById('select1').style = '';
+  }
+}
+
+function togglebib(paperid)
+{
+    var paper = document.getElementById(paperid) ;
+    var bib = paper.getElementsByTagName('pre') ;
+    var link = paper.getElementsByTagName('a') ;
+    if (bib.length > 0) {
+        if (bib[0].style.display == 'none') {
+            bib[0].style.display = 'block' ;
+            //bib[0].style.textDecoration = 'underline';
+            link[link.length - 1].style.textDecoration = 'underline';
+        } else {
+            bib[0].style.display = 'none' ;
+            bib[0].style.textDecoration = 'none';
+            link[link.length - 1].style.textDecoration = 'none';
+        }
+    }
+}
+
+</script>
+
+    <script src="js/scroll.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="outercontainer">
+      
+
+        <div class="container body">
+
+        <div class="content heading anchor" id="home">
+          <div class="img"><img class="img_responsive" src="https://yisenwang.github.io/yisenwang.jpg" alt="Photo"></div>
+          <div class="text info">
+            <h1>Yisen Wang</h1>
+            <p/>
+            <div>Assistant Professor, Ph.D. Advisor</div>
+            <div>School of Artificial Intelligence</div>
+            <div>Peking University</div>
+            <div>Email: yisen.wang AT pku DOT edu.cn</div>
+            <p/>
+            <span>[<a href="https://scholar.google.com/citations?user=uMWPDboAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>]</span>
+            <span>[<a href="https://github.com/YisenWang" target="_blank">Github</a>]</span>
+            <span>[<a href="http://www.cis.pku.edu.cn/info/1084/1244.htm" target="_blank">PKU Homepage</a>]</span>
+            <p/>
+            <p/>
+            <span>[<a href="students.html">Students</a>]</span>
+            <span>[<a href="recruit.html">Recruitment Instructions</a>]</span>
+            <p/>
+          </div>
+          <div class="text topic">
+            <p/>
+            <div class="title">Research Topics</div>
+            <ul>
+              <li><a id="_SSL" href="#SSL" onclick="showPubs(2)">Theory of Self-Supervised Learning</a></li>
+              <li><a id="_Adv" href="#Adv" onclick="showPubs(2)">Trustworthy Machine Learning</a></li>
+              <li><a id="_OOD" href="#OOD" onclick="showPubs(2)">Out-of-Distribution Generalization</a></li>
+              <li><a id="_WSL" href="#WSL" onclick="showPubs(2)">Weakly-Supervised Learning</a></li>
+              <li><a id="_Graph" href="#Graph" onclick="showPubs(2)">Graph Learning</a></li>
+              <li><a id="_SNN" href="#SNN" onclick="showPubs(2)">Spiking Neural Network</a></li>
+            </ul>
+            <p/>
+          </div>
+          <div class="text">
+            <p style="text-align: justify;">I am now a Tenure-track Assistant Professor (Ph.D. Advisor) at <a href="https://www.pku.edu.cn/">Peking University</a>.
+              I am also a faculty member of <a href="https://zero-lab-pku.github.io/people/" target="_blank">ZERO Lab</a> led by <a href="https://zhouchenlin.github.io/" target="_blank">Prof. Zhouchen Lin</a>.
+              I got my Ph.D. degree from <a href="http://www.cs.tsinghua.edu.cn/">Department of Computer Science and Technology</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>.
+              I have visited <a href="https://www.gatech.edu/">Georgia Tech</a>, USA, hosted by <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&hl=en" target="_blank">Prof. Le Song</a> and <a href="https://www.cc.gatech.edu/~zha/" target="_blank">Prof. Hongyuan Zha</a>, and <a href="https://www.unimelb.edu.au/">The University of Melbourne</a>, Australia, hosted by <a href="https://people.eng.unimelb.edu.au/baileyj/" target="_blank">Prof. James Bailey</a>.
+            </p>
+
+            <p style="text-align: justify;">My research interest is broadly the <strong>representation learning from various types of data</strong> (unlabeled or noisy or adversarial data, structured data like graph, etc.). Specifically, we recently focus on theoretical and algorithmic approaches for <strong>self-supervised/weakly-supervised learning</strong>, <strong>trustworthy machine learning</strong>, and <strong>graph learning</strong>.
+            We have received the <a href="https://2021.ecmlpkdd.org/index.html@p=2148.html">Best Paper Award</a> of ECML-PKDD 2021 and the <a href="https://advml-workshop.github.io/icml2021/">Silver Best Paper Award</a> of ICML 2021 Workshop on Adversarial Machine Learning. We have achieved the <a href="https://ml.cs.tsinghua.edu.cn/adv-bench/#/" target="_blank">1st Place</a> in the CVPR 2021 Adversarial Competitions and the <a href="http://hof.geekpwn.org/zh/index.html" target="_blank">First Prize</a> in the 2020 GeekPwn CAAD Competitions.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="content front">
+          <div class="text">
+            <h3 style="margin-bottom:.5em; text-align:justify">Openings</h3>
+            <ul>
+              <li>We are recruiting highly motivated post-docs via <a href="https://postdocs.pku.edu.cn/index.htm" target="_blank">Peking University Boya Postdoctoral Fellowship</a> (Salary 350K+), please read this <a href="recruit.html">note</a> first!</li>
+              <li>We are always actively recruiting Ph.D. students and interns! For Prospective Students, please read this <a href="recruit.html">note</a> first!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content anchor" id="publications">
+          <div class="text front">
+            <h3 style="margin-bottom:0em">
+              Publications 
+                (<a href="" id="select0" onclick="showPubs(0); return false;">Selected</a> /
+                <a href="" id="select1" onclick="showPubs(1); return false;">All by date</a> /
+                <a href="" id="select2" onclick="showPubs(2); return false;">All by topic</a>)
+            </h3>
+            <span class="tag">(* Equal  Contribution and # Corresponding  Author)</span>
+          </div>
+          
+          <div id="pubs"></div>
+
+    
+            <div id="all_pubs" style="display:none">
+
+            <div class="2023 OOD">
+              <div class="text" id="xin2023domainwise">
+              <ul>
+                <li><strong>On the Connection between Invariant Learning and Adversarial Training for Out-of-Distribution Generalization</strong><br>
+                Shiji Xin, Yifei Wang, Jingtong Su, <strong>Yisen Wang#</strong><br>
+                <em><strong>AAAI 2023</strong></em> <br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('xin2023domainwise')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{xin2023domainwise,
+                      title={Domain-wise Adversarial Training for Out-of-Distribution Generalization},
+                      author={Shiji Xin and Yifei Wang and Jingtong Su and Yisen Wang},
+                      booktitle={AAAI},
+                      year={2023}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2022 SSL">
+              <div class="text" id="zhang2022mask">
+              <ul>
+                <li><strong>How Mask Matters: Towards Theoretical Understandings of Masked Autoencoders</strong><br>
+                Qi Zhang*, Yifei Wang*, <strong>Yisen Wang#</strong><br>
+                <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
+                [<a href="https://arxiv.org/pdf/2210.08344.pdf" target="_blank">PDF</a>] 
+                [<a href="https://github.com/zhangq327/U-MAE" target="_blank">Code</a>] 
+                [<a href="javascript:togglebib('zhang2022mask')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{zhang2022mask,
+                      title={How Mask Matters: Towards Theoretical Understandings of Masked Autoencoders},
+                      author={Zhang, Qi and Wang, Yifei and Wang, Yisen},
+                      booktitle={NeurIPS},
+                      year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="Adv">
+              <div class="text">
+              <ul>
+                <li><strong>VALSE Tutorial: Adversarial Attack and Defense</strong> (in Chinese)<br>
+                <strong>Yisen Wang</strong> <br>
+                [<a href="https://www.bilibili.com/video/BV1Pf4y1c7dg/?spm_id_from=333.999.0.0" target="_blank">Video</a>]
+                [<a href="https://mp.weixin.qq.com/s/-lzPJFRmRhgqfJp4ckqMCw" target="_blank">Note</a>]
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2022 Adv">
+              <div class="text" id="mo2022adversarial">
+              <ul>
+                <li><strong>When Adversarial Training Meets Vision Transformers: Recipes from Training to Architecture</strong><br>
+                Yichuan Mo, Dongxian Wu, Yifei Wang, Yiwen Guo, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
+                [<a href="https://arxiv.org/pdf/2210.07540.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/mo666666/When-Adversarial-Training-Meets-Vision-Transformers" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2022adversarial')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{mo2022adversarial,
+                      title={When Adversarial Training Meets Vision Transformers: Recipes from Training to Architecture},
+                      author={Mo, Yichuan and Wu, Dongxian and Wang, Yifei and Guo, Yiwen and Wang, Yisen},
+                      booktitle={NeurIPS},
+                      year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 OOD">
+              <div class="text" id="wang2022improving">
+              <ul>
+                <li><strong>Improving Out-of-Distribution Generalization by Adversarial Training with Structured Priors</strong><br>
+                Qixun Wang*, Yifei Wang*, Hong Zhu, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
+                [<a href="https://arxiv.org/pdf/2210.06807.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/NOVAglow646/NIPS22-MAT-and-LDAT-for-OOD" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2022improving')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{wang2022improving,
+                      title={Improving Out-of-Distribution Generalization by Adversarial Training with Structured Priors},
+                      author={Wang, Qixun and Wang, Yifei and Zhu, Hong and Wang, Yisen},
+                      booktitle={NeurIPS},
+                      year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 SSL">
+              <div class="text" id="cui2022aggnce">
+              <ul>
+                <li><strong>AggNCE: Asymptotically Identifiable Contrastive Learning</strong><br>
+                Jingyi Cui*, Weiran Huang*, Yifei Wang, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000">(Oral)</font></strong><br>
+                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_68.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('cui2022aggnce')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{cui2022aggnce,
+                      title={AggNCE: Asymptotically Identifiable Contrastive Learning},
+                      author={Cui, Jingyi and Huang, Weiran and Wang, Yifei and Wang, Yisen},
+                      booktitle={NeurIPS Workshop},
+                      year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 SSL">
+              <div class="text" id="du2022variational">
+              <ul>
+                <li><strong>Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning</strong><br>
+                Tianqi Du*, Yifei Wang*, Weiran Huang, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_64.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('du2022variational')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{du2022variational,
+                        title={Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning},
+                        author={Du, Tianqi and Wang, Yifei and Huang, Weiran and Wang, Yisen},
+                        booktitle={NeurIPS Workshop},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+
+            <div class="2022 Adv">
+              <div class="text" id="kou2022certified">
+              <ul>
+                <li><strong>Certified Adversarial Robustness Under the Bounded Support Set</strong> <br>
+                Yiwen Kou, Qinyuan Zheng, <strong>Yisen Wang#</strong> <br>
+                <em><strong>ICML 2022</strong></em> <br>
+                [<a href="https://proceedings.mlr.press/v162/kou22a/kou22a.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('kou2022certified')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{kou2022certified,
+                        title={Certified Adversarial Robustness Under the Bounded Support Set},
+                        author={Kou, Yiwen and Zheng, Qinyuan and Wang, Yisen},
+                        booktitle={ICML},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Adv">
+              <div class="text" id="li2022cerdeq">
+              <ul>
+                <li><strong>CerDEQ: Certifiable Deep Equilibrium Model</strong> <br>
+                Mingjie Li, <strong>Yisen Wang</strong>, Zhouchen Lin <br>
+                <em><strong>ICML 2022</strong></em> <br>
+                [<a href="https://proceedings.mlr.press/v162/li22t/li22t.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('li2022cerdeq')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{li2022cerdeq,
+                        title={CerDEQ: Certifiable Deep Equilibrium Model},
+                        author={Li, Mingjie and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={ICML},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Graph">
+              <div class="text" id="chen2022optimization">
+              <ul>
+                <li><strong>Optimization-Induced Graph Implicit Nonlinear Diffusion</strong> <br>
+                Qi Chen, Yifei Wang, <strong>Yisen Wang</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>ICML 2022</strong></em> <br>
+                [<a href="https://proceedings.mlr.press/v162/chen22z/chen22z.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/7qchen/GIND" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('chen2022optimization')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{chen2022optimization,
+                        title={Optimization-Induced Graph Implicit Nonlinear Diffusion},
+                        author={Chen, Qi and Wang, Yifei and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={ICML},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Graph">
+              <div class="text" id="li2022g">
+              <ul>
+                <li><strong>G2CN: Graph Gaussian Convolution Networks with Concentrated Graph Filters</strong><br>
+                Mingjie Li, Xiaojun Guo, Yifei Wang, <strong>Yisen Wang</strong>, Zhouchen Lin <br>
+                <em><strong>ICML 2022</strong></em> <br>
+                [<a href="https://proceedings.mlr.press/v162/li22h/li22h.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/homles11/G2CN" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('li2022g')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{li2022g,
+                        title={G $\^{} 2$ CN: Graph Gaussian Convolution Networks with Concentrated Graph Filters},
+                        author={Li, Mingjie and Guo, Xiaojun and Wang, Yifei and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={ICML},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Adv">
+              <div class="text" id="wang2022self">
+              <ul>
+                <li><strong>Self-ensemble Adversarial Training for Improved Robustness</strong><br>
+                Hongjun Wang, <strong>Yisen Wang#</strong> <br>
+                <em><strong>ICLR 2022</strong></em> <br>
+                [<a href="https://openreview.net/pdf?id=oU3aTsmeRQV" target="_blank">PDF</a>]
+                [<a href="https://github.com/whj363636/Self-Ensemble-Adversarial-Training" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2022self')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2022self,
+                        title={Self-Ensemble Adversarial Training for Improved Robustness},
+                        author={Wang, Hongjun and Wang, Yisen},
+                        booktitle={ICLR},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Adv">
+              <div class="text" id="wang2022unified">
+              <ul>
+                <li><strong>A Unified Contrastive Energy-based Model for Understanding the Generative Ability of Adversarial Training</strong><br>
+                Yifei Wang, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>ICLR 2022</strong></em> <br>
+                [<a href="https://openreview.net/pdf?id=XhF2VOMRHS" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('wang2022unified')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2022unified,
+                        title={A Unified Contrastive Energy-based Model for Understanding the Generative Ability of Adversarial Training},
+                        author={Wang, Yifei and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={ICLR},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 SSL">
+              <div class="text" id="wang2022chaos">
+              <ul>
+                <li><strong>Chaos is a Ladder: A New Theoretical Understanding of Contrastive Learning via Augmentation Overlap</strong>  <br>
+                Yifei Wang*, Qi Zhang*, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>ICLR 2022</strong></em> <br>
+                [<a href="https://openreview.net/pdf?id=ECvgmYVyeUz" target="_blank">PDF</a>]
+                [<a href="https://github.com/zhangq327/ARC" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2022chaos')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2022chaos,
+                        title={Chaos is a ladder: A new theoretical understanding of contrastive learning via augmentation overlap},
+                        author={Wang, Yifei and Zhang, Qi and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={ICLR},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022">
+              <div class="text" id="li2022optimization">
+              <ul>
+                <li><strong>Optimization inspired Multi-Branch Equilibrium Models</strong> <br>
+                Mingjie Li, <strong>Yisen Wang</strong>, Xingyu Xie, Zhouchen Lin <br>
+                <em><strong>ICLR 2022</strong></em> <br>
+                [<a href="https://openreview.net/pdf?id=nbC8iTTXIrk" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('li2022optimization')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{li2022optimization,
+                        title={Optimization inspired Multi-Branch Equilibrium Models},
+                        author={Li, Mingjie and Wang, Yisen and Xie, Xingyu and Lin, Zhouchen},
+                        booktitle={ICLR},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 Adv">
+              <div class="text" id="bai2023query">
+              <ul>
+                <li><strong>Query Efficient Black-box Adversarial Attack on Deep Neural Networks</strong> <br>
+                Yang Bai*, <strong>Yisen Wang*</strong>, Yuyuan Zeng, Yong Jiang, Shu-Tao Xia<br>
+                <em><strong>Pattern Recognition, 2022</strong></em> <br>
+                [<a href="https://www.sciencedirect.com/science/article/pii/S0031320322005179" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('bai2023query')">Bib</a>]<br>
+                <pre style="display: none">
+                      @article{bai2023query,
+                        title={Query efficient black-box adversarial attack on deep neural networks},
+                        author={Bai, Yang and Wang, Yisen and Zeng, Yuyuan and Jiang, Yong and Xia, Shu-Tao},
+                        journal={Pattern Recognition},
+                        volume={133},
+                        pages={109037},
+                        year={2023},
+                        publisher={Elsevier}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+
+
+            <div class="2022 SNN">
+              <div class="text" id="meng2022training1">
+              <ul>
+                <li><strong>Training High-Performance Low-Latency Spiking Neural Networks by Differentiation on Spike Representation</strong>  <br>
+                Qingyan Meng, Mingqing Xiao, Shen Yan, <strong>Yisen Wang</strong>, Zhouchen Lin, Zhiquan Luo <br>
+                <em><strong>CVPR 2022</strong></em> <br>
+                [<a href="https://arxiv.org/pdf/2205.00459.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/qymeng94/DSR" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('meng2022training1')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{meng2022training1,
+                        title={Training High-Performance Low-Latency Spiking Neural Networks by Differentiation on Spike Representation},
+                        author={Meng, Qingyan and Xiao, Mingqing and Yan, Shen and Wang, Yisen and Lin, Zhouchen and Luo, Zhi-Quan},
+                        booktitle={CVPR},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2022 SNN">
+              <div class="text" id="meng2022training2">
+              <ul>
+                <li><strong>Training Much Deeper Spiking Neural Networks with A Small Number of Time-Steps</strong>  <br>
+                Qingyan Meng, Shen Yan, Mingqing Xiao, <strong>Yisen Wang</strong>, Zhouchen Lin, Zhiquan Luo <br>
+                <em><strong>Neural Networks, 2022</strong></em> <br>
+                [<a href="https://www.sciencedirect.com/science/article/pii/S0893608022002064" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('meng2022training2')">Bib</a>]<br>
+                <pre style="display: none">
+                      @article{meng2022training2,
+                        title={Training much deeper spiking neural networks with a small number of time-steps},
+                        author={Meng, Qingyan and Yan, Shen and Xiao, Mingqing and Wang, Yisen and Lin, Zhouchen and Luo, Zhi-Quan},
+                        journal={Neural Networks},
+                        volume={153},
+                        pages={254--268},
+                        year={2022},
+                        publisher={Elsevier}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+
+
+            <div class="2021 Adv">
+              <div class="text" id="bai2021clustering">
+              <ul>
+                <li><strong>Clustering Effect of (Linearized) Adversarial Robust Models</strong>  <br>
+                Yang Bai*, Xin Yan*, Yong Jiang, Shu-Tao Xia#, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000">(Spotlight, Top 3%)</font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/f770b62bc8f42a0b66751fe636fc6eb0-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/bymavis/Adv_Weight_NeurIPS2021/" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('bai2021clustering')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{bai2021clustering,
+                        title={Clustering Effect of (Linearized) Adversarial Robust Models},
+                        author={Bai, Yang and Yan, Xin and Jiang, Yong and Xia, Shu-Tao and Wang, Yisen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+
+            <div class="selected 2021 Adv">
+              <div class="text" id="wu2021adversarial">
+              <ul>
+                <li><strong>Adversarial Neuron Pruning Purifies Backdoored Deep Models</strong>  <br>
+                Dongxian Wu, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000">(SOTA Backdoor Defense at BackdoorBench)</font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/8cbe9ce23f42628c98f80fa0fac8b19a-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/csdongxian/ANP_backdoor" target="_blank">Code</a>]
+                [<a href="https://backdoorbench.github.io/index.html" target="_blank">BackdoorBench</a>]
+                [<a href="javascript:togglebib('wu2021adversarial')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wu2021adversarial,
+                        title={Adversarial neuron pruning purifies backdoored deep models},
+                        author={Wu, Dongxian and Wang, Yisen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 SSL">
+              <div class="text" id="wang2021residual">
+              <ul>
+                <li><strong>Residual Relaxation for Multi-view Representation Learning</strong>  <br>
+                Yifei Wang, Zhengyang Geng, Feng Jiang, Chuming Li, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/6516c28727509c3db6280ae16254e916-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('wang2021residual')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2021residual,
+                        title={Residual relaxation for multi-view representation learning},
+                        author={Wang, Yifei and Geng, Zhengyang and Jiang, Feng and Li, Chuming and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Graph">
+              <div class="text" id="wang2021dissecting">
+              <ul>
+                <li><strong>Dissecting the Diffusion Process in Linear Graph Convolutional Networks</strong>  <br>
+                Yifei Wang, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/2d95666e2649fcfc6e3af75e09f5adb9-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/yifeiwang77/DGC" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2021dissecting')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{wang2021dissecting,
+                      title={Dissecting the diffusion process in linear graph convolutional networks},
+                      author={Wang, Yifei and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                      booktitle={NeurIPS},
+                      year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="niu2021morie">
+              <ul>
+                <li><strong>Moire Attack (MA): A New Potential Risk of Screen Photos</strong>  <br>
+                Dantong Niu, Guo Ruohao, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/db9eeb7e678863649bce209842e0d164-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/Dantong88/Moire_Attack" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('niu2021morie')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{niu2021morie,
+                        title={Mori{\'e} Attack (MA): A New Potential Risk of Screen Photos},
+                        author={Niu, Dantong and Guo, Ruohao and Wang, Yisen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="ren2021unified">
+              <ul>
+                <li><strong>A Unified Game-Theoretic Interpretation of Adversarial Robustness</strong>  <br>
+                Jie Ren*, Die Zhang*, <strong>Yisen Wang*</strong>, Lu Chen, Zhanpeng Zhou, Yiting Chen, Xu Cheng, Xin Wang, Meng Zhou, Jie Shi, Quanshi Zhang <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/1f4fe6a4411edc2ff625888b4093e917-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/Jie-Ren/A-Unified-Game-Theoretic-Interpretation-of-Adversarial-Robustness" target="_blank">Code</a>]
+                [<a href="https://zhuanlan.zhihu.com/p/361686461">Zhihu</a>]
+                [<a href="javascript:togglebib('ren2021unified')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{ren2021unified,
+                        title={A unified game-theoretic interpretation of adversarial robustness},
+                        author={Ren, Jie and Zhang, Die and Wang, Yisen and Chen, Lu and Zhou, Zhanpeng and Chen, Yiting and Cheng, Xu and Wang, Xin and Zhou, Meng and Shi, Jie and others},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="huang2021exploring">
+              <ul>
+                <li><strong>Exploring Architectural Ingredients of Adversarially Robust Deep Neural Networks</strong>  <br>
+                Hanxun Huang, <strong>Yisen Wang</strong>, Sarah Monazam Erfani, Quanquan Gu, James Bailey, Xingjun Ma <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/2bd7f907b7f5b6bbd91822c0c7b835f6-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/HanxunH/RobustWRN" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('huang2021exploring')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{huang2021exploring,
+                      title={Exploring Architectural Ingredients of Adversarially Robust Deep Neural Networks},
+                      author={Huang, Hanxun and Wang, Yisen and Erfani, Sarah Monazam and Gu, Quanquan and Bailey, James and Ma, Xingjun},
+                      booktitle={NeurIPS},
+                      year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="ma2021finding">
+              <ul>
+                <li><strong>Finding Optimal Tangent Points for Reducing Distortions of Hard-label Attacks</strong>  <br>
+                Chen Ma, Xiangyu Guo, Li Chen, Jun-Hai Yong, <strong>Yisen Wang</strong> <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/a113c1ecd3cace2237256f4c712f61b5-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/machanic/TangentAttack" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ma2021finding')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{ma2021finding,
+                      title={Finding Optimal Tangent Points for Reducing Distortions of Hard-label Attacks},
+                      author={Ma, Chen and Guo, Xiangyu and Chen, Li and Yong, Jun-Hai and Wang, Yisen},
+                      booktitle={NeurIPS},
+                      year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021">
+              <div class="text" id="geng2021training">
+              <ul>
+                <li><strong>On Training Implicit Models</strong>  <br>
+                Zhengyang Geng, Xin-Yu Zhang, Shaojie Bai, <strong>Yisen Wang</strong>, Zhouchen Lin <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/cb8da6767461f2812ae4290eac7cbc42-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/Gsunshine/phantom_grad" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('geng2021training')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{geng2021training,
+                        title={On training implicit models},
+                        author={Geng, Zhengyang and Zhang, Xin-Yu and Bai, Shaojie and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021">
+              <div class="text" id="geng2021training">
+              <ul>
+                <li><strong>Gauge Equivariant Transformer</strong>  <br>
+                Lingshen He, Yiming Dong, <strong>Yisen Wang</strong>, Dacheng Tao, Zhouchen Lin <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://proceedings.neurips.cc/paper/2021/file/e57c6b956a6521b28495f2886ca0977a-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('geng2021training')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{he2021gauge,
+                        title={Gauge equivariant transformer},
+                        author={He, Lingshen and Dong, Yiming and Wang, Yisen and Tao, Dacheng and Lin, Zhouchen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 SNN">
+              <div class="text" id="xiao2021training">
+              <ul>
+                <li><strong>Training Feedback Spiking Neural Networks by Implicit Differentiation on the Equilibrium State</strong>  <br>
+                Mingqing Xiao, Qingyan Meng, Zongpeng Zhang, <strong>Yisen Wang</strong>, Zhouchen Lin <br>
+                <em><strong>NeurIPS 2021</strong></em> <strong><font color="#ff0000">(Spotlight, Top 3%)</font></strong> <br>
+                [<a href="https://papers.nips.cc/paper/2021/file/79a49b3e3762632813f9e35f4ba53d6c-Paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/pkuxmq/IDE-FSNN" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('xiao2021training')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{xiao2021training,
+                        title={Training feedback spiking neural networks by implicit differentiation on the equilibrium state},
+                        author={Xiao, Mingqing and Meng, Qingyan and Zhang, Zongpeng and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={NeurIPS},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="wang2021reparameterized">
+              <ul>
+                <li><strong>Reparameterized Sampling for Generative Adversarial Networks</strong>  <br>
+                Yifei Wang, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>ECML-PKDD 2021</strong></em> <strong><font color="#ff0000">(Best (Student) Machine Learning Paper Award)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2107.00352.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/yifeiwang77/repgan" target="_blank">Code</a>]
+                [<a href="https://2021.ecmlpkdd.org/?page_id=2148" target="_blank">Award</a>]
+                [<a href="javascript:togglebib('wang2021reparameterized')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2021reparameterized,
+                        title={Reparameterized Sampling for Generative Adversarial Networks},
+                        author={Wang, Yifei and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={ECML-PKDD},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="wang2021demystifying">
+              <ul>
+                <li><strong>Demystifying Adversarial Training via A Unified Probabilistic Framework</strong>  <br>
+                Yifei Wang, <strong>Yisen Wang#</strong>, Jiansheng Yang, Zhouchen Lin <br>
+                <em><strong>ICML 2021 Workshop on Adversarial Machine Learning</strong></em> <strong><font color="#ff0000">(Silver Best Paper Award)</font></strong> <br>
+                [<a href="https://openreview.net/pdf?id=U0TCTe68s41" target="_blank">PDF</a>]
+                [<a href="https://advml-workshop.github.io/icml2021/" target="_blank">Award</a>]
+                [<a href="javascript:togglebib('wang2021demystifying')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2021demystifying,
+                        title={Demystifying adversarial training via a unified probabilistic framework},
+                        author={Wang, Yifei and Wang, Yisen and Yang, Jiansheng and Lin, Zhouchen},
+                        booktitle={ICML 2021 Workshop on Adversarial Machine Learning},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 OOD">
+              <div class="text" id="zhang2021can">
+              <ul>
+                <li><strong>Can Subnetwork Structure be the Key to Out-of-Distribution Generalization?</strong>  <br>
+                Dinghuai Zhang, Kartik Ahuja, Yilun Xu, <strong>Yisen Wang</strong>, Aaron Courville<br>
+                <em><strong>ICML 2021</strong></em> <strong><font color="#ff0000">(Long Talk, Top 3%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2106.02890.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('zhang2021can')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{zhang2021can,
+                        title={Can subnetwork structure be the key to out-of-distribution generalization?},
+                        author={Zhang, Dinghuai and Ahuja, Kartik and Xu, Yilun and Wang, Yisen and Courville, Aaron},
+                        booktitle={ICML},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 WSL">
+              <div class="text" id="wen2021leveraged">
+              <ul>
+                <li><strong>Leveraged Weighted Loss for Partial Label Learning</strong>  <br>
+                Hongwei Wen*, Jingyi Cui*, Hanyuan Hang, Jiabin Liu#, <strong>Yisen Wang#</strong>, Zhouchen Lin#<br>
+                <em><strong>ICML 2021</strong></em> <strong><font color="#ff0000">(Long Talk, Top 3%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2106.05731.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/hongwei-wen/LW-loss-for-partial-label" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wen2021leveraged')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wen2021leveraged,
+                        title={Leveraged weighted loss for partial label learning},
+                        author={Wen, Hongwei and Cui, Jingyi and Hang, Hanyuan and Liu, Jiabin and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={ICML},
+                        year={2021}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 SSL">
+              <div class="text" id="cui2021gbht">
+              <ul>
+                <li><strong>GBHT: Gradient Boosting Histogram Transform for Density Estimation</strong>  <br>
+                Jingyi Cui*, Hanyuan Hang*, <strong>Yisen Wang#</strong>, Zhouchen Lin<br>
+                <em><strong>ICML 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2106.05738.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('cui2021gbht')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{cui2021gbht,
+                        title={GBHT: Gradient Boosting Histogram Transform for Density Estimation},
+                        author={Cui, Jingyi and Hang, Hanyuan and Wang, Yisen and Lin, Zhouchen},
+                        booktitle={ICML},
+                        year={2021}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="tian2021analysis">
+              <ul>
+                <li><strong>Analysis and Applications of Class-wise Robustness in Adversarial Training</strong>  <br>
+                Qi Tian, Kun Kuang#, Kelu Jiang, Fei Wu, <strong>Yisen Wang#</strong><br>
+                <em><strong>KDD 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2105.14240.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('tian2021analysis')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{tian2021analysis,
+                        title={Analysis and Applications of Class-wise Robustness in Adversarial Training},
+                        author={Tian, Qi and Kuang, Kun and Jiang, Kelu and Wu, Fei and Wang, Yisen},
+                        booktitle={KDD},
+                        year={2021}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2021 Adv">
+              <div class="text" id="huang2021unlearnable">
+              <ul>
+                <li><strong>Unlearnable Examples: Making Personal Data Unexploitable</strong>  <br>
+                Hanxun Huang, Xingjun Ma#, Sarah Monazam Erfani, James Bailey, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2021</strong></em> <strong><font color="#ff0000">(Spotlight, Top 4%, Featured by MIT Technology Review)</font></strong> <br>
+                [<a href="https://openreview.net/pdf?id=iAmZUo0DxC0" target="_blank">PDF</a>]
+                [<a href="https://github.com/HanxunH/Unlearnable-Examples" target="_blank">Code</a>]
+                [<a href="https://www.technologyreview.com/2021/05/05/1024613/stop-ai-recognizing-your-face-selfies-machine-learning-facial-recognition-clearview/">MIT Technology Review</a>]
+                [<a href="javascript:togglebib('huang2021unlearnable')">Bib</a>]<br>
+                <pre style="display: none">
+                        @inproceedings{huang2021unlearnable,
+                        title={Unlearnable Examples: Making Personal Data Unexploitable},
+                        author={Huang, Hanxun and Ma, Xingjun and Erfani, Sarah Monazam and Bailey, James and Wang, Yisen},
+                        booktitle={ICLR},
+                        year={2021}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="bai2021improving">
+              <ul>
+                <li><strong>Improving Adversarial Robustness via Channel-wise Activation Suppressing</strong>  <br>
+                Yang Bai*, Yuyuan Zeng*, Yong Jiang, Shu-Tao Xia#, Xingjun Ma, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2021</strong></em> <strong><font color="#ff0000">(Spotlight, Top 4%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2103.08307.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/bymavis/CAS_ICLR2021" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('bai2021improving')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{bai2021improving,
+                        title={Improving adversarial robustness via channel-wise activation suppressing},
+                        author={Bai, Yang and Zeng, Yuyuan and Jiang, Yong and Xia, Shu-Tao and Ma, Xingjun and Wang, Yisen},
+                        booktitle={ICLR},
+                        year={2021}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2021 Adv">
+              <div class="text" id="wang2021unified">
+              <ul>
+                <li><strong>A Unified Approach to Interpreting and Boosting Adversarial Transferability</strong>  <br>
+                Xin Wang*, Jie Ren*, Shuyun Lin, Xiangming Zhu, <strong>Yisen Wang</strong>, Quanshi Zhang<br>
+                <em><strong>ICLR 2021</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://openreview.net/pdf?id=X76iqnUbBjz" target="_blank">PDF</a>]
+                [<a href="https://github.com/xherdan76/A-Unified-Approach-to-Interpreting-and-Boosting-Adversarial-Transferability" target="_blank">Code</a>]
+                [<a href="https://zhuanlan.zhihu.com/p/264873308/" target="_blank">Zhihu</a>]
+                [<a href="javascript:togglebib('wang2021unified')">Bib</a>]<br>
+                <pre style="display: none">
+                        @inproceedings{wang2021unified,
+                          title={A unified approach to interpreting and boosting adversarial transferability},
+                          author={Wang, Xin and Ren, Jie and Lin, Shuyun and Zhu, Xiangming and Wang, Yisen and Zhang, Quanshi},
+                          booktitle={ICLR},
+                          year={2021}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2020 Adv">
+              <div class="text" id="wu2020adversarial">
+              <ul>
+                <li><strong>Adversarial Weight Perturbation Helps Robust Generalization</strong>  <br>
+                Dongxian Wu, Shu-Tao Xia, <strong>Yisen Wang#</strong><br>
+                <em><strong>NeurIPS 2020</strong></em> <strong><font color="#ff0000">(Rank 1st in CVPR 2021 Competitions)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2004.05884.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/csdongxian/AWP" target="_blank">Code</a>]
+                [<a href="https://www.bilibili.com/video/BV1pt4y1Y7uU" target="_blank">NeurIPS MeetUp Video</a>]
+                [<a href="https://ml.cs.tsinghua.edu.cn/adv-bench/#/" target="_blank">CVPR 2021 Competitions</a>]
+                [<a href="javascript:togglebib('wu2020adversarial')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wu2020adversarial,
+                        title={Adversarial Weight Perturbation Helps Robust Generalization},
+                        author={Wu, Dongxian and Xia, Shu-Tao and Wang, Yisen},
+                        booktitle={NeurIPS},
+                        year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2020 WSL">
+              <div class="text" id="ma2020normalized">
+              <ul>
+                <li><strong>Normalized Loss Functions for Deep Learning with Noisy Labels</strong>  <br>
+                Xingjun Ma*, Hanxun Huang*, <strong>Yisen Wang#</strong>, Simone Romano, Sarah Erfani and James Bailey<br>
+                <em><strong>ICML 2020</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/abs/2006.13554" target="_blank">PDF</a>]
+                [<a href="https://github.com/HanxunHuangLemonBear/Active-Passive-Losses" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ma2020normalized')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{ma2020normalized,
+                        title={Normalized loss functions for deep learning with noisy labels},
+                        author={Ma, Xingjun and Huang, Hanxun and Wang, Yisen and Romano, Simone and Erfani, Sarah and Bailey, James},
+                        booktitle={ICML},
+                        year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2020 Adv">
+              <div class="text" id="wang2020improving">
+              <ul>
+                <li><strong>Improving Adversarial Robustness Requires Revisiting Misclassified Examples</strong>  <br>
+                <strong>Yisen Wang*</strong>, Difan Zou*, Jinfeng Yi, James Bailey, Xingjun Ma, Quanquan Gu<br>
+                <em><strong>ICLR 2020</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://openreview.net/pdf?id=rklOg6EFwS" target="_blank">PDF</a>]
+                [<a href="https://github.com/YisenWang/MART" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2020improving')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2020improving,
+                      title={Improving Adversarial Robustness Requires Revisiting Misclassified Examples},
+                      author={Yisen Wang and Difan Zou and Jinfeng Yi and James Bailey and Xingjun Ma and Quanquan Gu},
+                      booktitle={ICLR},
+                      year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2020 Adv">
+              <div class="text" id="wu2020skip">
+              <ul>
+                <li><strong>Skip Connections Matter: On the Transferability of Adversarial Examples Generated with ResNets</strong>  <br>
+                Dongxian Wu, <strong>Yisen Wang#</strong>, Shu-Tao Xia, James Bailey, Xingjun Ma<br>
+                <em><strong>ICLR 2020</strong></em> <strong><font color="#ff0000">(Spotlight, Top 4%)</font></strong> <br>
+                [<a href="https://openreview.net/pdf?id=BJlRs34Fvr" target="_blank">PDF</a>]
+                [<a href="https://github.com/csdongxian/skip-connections-matter" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wu2020skip')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wu2020skip,
+                      title={Skip Connections Matter: On the Transferability of Adversarial Examples Generated with ResNets},
+                      author={Dongxian Wu and Yisen Wang and Shu-Tao Xia and James Bailey and Xingjun Ma},
+                      booktitle={ICLR},
+                      year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2020 Adv">
+              <div class="text" id="duan2020adversarial">
+              <ul>
+                <li><strong>Adversarial Camouflage: Hiding Physical-World Attacks with Natural Styles</strong>  <br>
+                Ranjie Duan, Xingjun Ma, <strong>Yisen Wang</strong>, James Bailey, Kai Qin, Yun Yang<br>
+                <em><strong>CVPR 2020</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/abs/2003.08757" target="_blank">PDF</a>]
+                [<a href="https://github.com/RjDuan/AdvCam-Hide-Adv-with-Natural-Styles" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('duan2020adversarial')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{duan2020adversarial,
+                        title={Adversarial Camouflage: Hiding Physical-World Attacks with Natural Styles},
+                        author={Duan, Ranjie and Ma, Xingjun and Wang, Yisen and Bailey, James and Qin, A Kai and Yang, Yun},
+                        booktitle={CVPR},
+                        year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2020 Adv">
+              <div class="text" id="bai2020improving">
+              <ul>
+                <li><strong>Improving Query Efficiency of Black-box Adversarial Attack</strong>  <br>
+                Yang Bai*, Yuyuan Zeng*, Yong Jiang#, <strong>Yisen Wang#</strong>, Shu-Tao Xia, Weiwei Guo<br>
+                <em><strong>ECCV 2020</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2009.11508.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/Sandy-Zeng/NPAttack" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('bai2020improving')">Bib</a>]<br>
+                <pre style="display: none">
+                        @inproceedings{bai2020improving,
+                          title={Improving query efficiency of black-box adversarial attack},
+                          author={Bai, Yang and Zeng, Yuyuan and Jiang, Yong and Wang, Yisen and Xia, Shu-Tao and Guo, Weiwei},
+                          booktitle={ECCV},
+                          year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2020 Adv">
+              <div class="text" id="ma2019understanding">
+              <ul>
+                <li><strong>Understanding Adversarial Attacks on Deep Learning Based Medical Image Analysis Systems</strong>  <br>
+                Xingjun Ma, Yuhao Niu, Lin Gu, <strong>Yisen Wang</strong>, Yitian Zhao, James Bailey, Feng Lu <br>
+                <em><strong>Pattern Recognition, 2020</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://www.sciencedirect.com/science/article/pii/S0031320320301357" target="_blank">PDF</a>]
+                [<a href="https://github.com/zzdyyy/Understanding-Adversarial-Attacks-MIA" target="_blank">Code</a>]
+                [<a href="https://www.rsipvision.com/ComputerVisionNews-2020October/4/">Computer Vision News</a>]
+                [<a href="javascript:togglebib('ma2019understanding')">Bib</a>]<br>
+                <pre style="display: none">
+                        @article{ma2019understanding,
+                          title={Understanding Adversarial Attacks on Deep Learning Based Medical Image Analysis Systems},
+                          author={Ma, Xingjun and Niu, Yuhao and Gu, Lin and Wang, Yisen and Zhao, Yitian and Bailey, James and Lu, Feng},
+                          journal={Pattern Recognition},
+                          year={2020}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2019 Adv">
+              <div class="text" id="wang2019dynamic">
+              <ul>
+                <li><strong>On the Convergence and Robustness of Adversarial Training</strong>  <br>
+                <strong>Yisen Wang*</strong>, Xingjun Ma*, James Bailey, Jinfeng Yi, Bowen Zhou, Quanquan Gu<br>
+                <em><strong>ICML 2019</strong></em> <strong><font color="#ff0000">(Long Talk, Top 3%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/2112.08304.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/YisenWang/dynamic_adv_training" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2019dynamic')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2019dynamic,
+                        title={On the Convergence and Robustness of Adversarial Training},
+                        author={Wang, Yisen and Ma, Xingjun and Bailey, James and Yi, Jinfeng and Zhou, Bowen and Gu, Quanquan},
+                        booktitle={ICML},
+                        year={2019}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2019 WSL">
+              <div class="text" id="wang2019symmetric">
+              <ul>
+                <li><strong>Symmetric Cross Entropy for Robust Learning with Noisy Labels</strong>  <br>
+                <strong>Yisen Wang*</strong>, Xingjun Ma*, Zaiyi Chen, Yuan Luo, Jinfeng Yi, James Bailey<br>
+                <em><strong>ICCV 2019</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://arxiv.org/abs/1908.06112" target="_blank">PDF</a>]
+                [<a href="https://github.com/YisenWang/symmetric_cross_entropy_for_noisy_labels" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2019symmetric')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2019symmetric,
+                        title={Symmetric cross entropy for robust learning with noisy labels},
+                        author={Wang, Yisen and Ma, Xingjun and Chen, Zaiyi and Luo, Yuan and Yi, Jinfeng and Bailey, James},
+                        booktitle={ICCV},
+                        year={2019}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2019 Adv">
+              <div class="text" id="bai2019hilbert">
+              <ul>
+                <li><strong>Hilbert-Based Generative Defense for Adversarial Examples</strong>  <br>
+                Yang Bai*, Yan Feng*, <strong>Yisen Wang#</strong>, Shu-Tao Xia, Yong Jiang#<br>
+                <em><strong>ICCV 2019</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Bai_Hilbert-Based_Generative_Defense_for_Adversarial_Examples_ICCV_2019_paper.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('bai2019hilbert')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{bai2019hilbert,
+                        title={Hilbert-Based Generative Defense for Adversarial Examples},
+                        author={Bai, Yang and Feng, Yan and Wang, Yisen and Dai, Tao and Xia, Shu-Tao and Jiang, Yong},
+                        booktitle={ICCV},
+                        year={2019}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2018 WSL">
+              <div class="text" id="wang2018iterative">
+              <ul>
+                <li><strong>Iterative Learning with Open-set Noisy Labels</strong>  <br>
+                <strong>Yisen Wang</strong>, Weiyang Liu, Xingjun Ma, James Bailey, Hongyuan Zha, Le Song, Shu-Tao Xia<br>
+                <em><strong>CVPR 2018</strong></em> <strong><font color="#ff0000">(Spotlight, Top 7%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/1804.00092.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/YisenWang/ONL" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2018iterative')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{wang2018iterative,
+                        title={Iterative learning with open-set noisy labels},
+                        author={Wang, Yisen and Liu, Weiyang and Ma, Xingjun and Bailey, James and Zha, Hongyuan and Song, Le and Xia, Shu-Tao},
+                        booktitle={CVPR},
+                        year={2018}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="selected 2018 WSL">
+              <div class="text" id="ma2018dimensionality">
+              <ul>
+                <li><strong>Dimensionality-Driven Learning with Noisy Labels</strong>  <br>
+                Xingjun Ma*, <strong>Yisen Wang*</strong>, Michael E. Houle, Shuo Zhou, Sarah Monazam Erfani, Shu-Tao Xia, Sudanthi Wijewickrema, James Bailey<br>
+                <em><strong>ICML 2018</strong></em> <strong><font color="#ff0000">(Long Talk, Top 3%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/1806.02612.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/xingjunm/dimensionality-driven-learning" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ma2018dimensionality')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{ma2018dimensionality,
+                        title={Dimensionality-driven learning with noisy labels},
+                        author={Ma, Xingjun and Wang, Yisen and Houle, Michael E and Zhou, Shuo and Erfani, Sarah and Xia, Shutao and Wijewickrema, Sudanthi and Bailey, James},
+                        booktitle={ICML},
+                        year={2018}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2018 Adv">
+              <div class="text" id="ma2018characterizing">
+              <ul>
+                <li><strong>Characterizing Adversarial Subspaces Using Local Intrinsic Dimensionality</strong>  <br>
+                Xingjun Ma, Bo Li, <strong>Yisen Wang</strong>, Sarah M. Erfani, Sudanthi Wijewickrema, Michael E. Houle, Grant Schoenebeck, Dawn Song, James Bailey<br>
+                <em><strong>ICLR 2018</strong></em> <strong><font color="#ff0000">(Oral, Top 2%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/1801.02613.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/xingjunm/lid_adversarial_subspace_detection" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ma2018characterizing')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{ma2018characterizing,
+                        title={Characterizing adversarial subspaces using local intrinsic dimensionality},
+                        author={Ma, Xingjun and Li, Bo and Wang, Yisen and Erfani, Sarah M and Wijewickrema, Sudanthi and Schoenebeck, Grant and Song, Dawn and Houle, Michael E and Bailey, James},
+                        booktitle={ICLR},
+                        year={2018}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="2018 WSL">
+              <div class="text" id="Liu2018DCNets">
+              <ul>
+                <li><strong>Decoupled Networks</strong>  <br>
+                Weiyang Liu, Zhen Liu, Zhiding Yu, Bo Dai, Rongmei Lin, <strong>Yisen Wang</strong>, James Rehg, Le Song<br>
+                <em><strong>CVPR 2018</strong></em> <strong><font color="#ff0000">(Spotlight, Top 7%)</font></strong> <br>
+                [<a href="https://arxiv.org/pdf/1804.08071.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/wy1iu/DCNets" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('Liu2018DCNets')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{Liu2018DCNets,
+                          author = {Liu, Weiyang and Liu, Zhen and Yu, Zhiding and Dai, Bo and Lin, Rongmei
+                           and Wang, Yisen and Rehg, James M. and Song, Le},
+                          title = {Decoupled Networks},
+                          booktitle = {CVPR},
+                          year = {2018}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+
+
+            <div class="2018">
+              <div class="text" id="wang2017novel">
+              <ul>
+                <li><strong>A Novel Consistent Random Forest Framework: Bernoulli Random Forests</strong>  <br>
+                <strong>Yisen Wang</strong>, Shu-Tao Xia, Qingtao Tang, Jia Wu, Xingquan Zhu <br>
+                <em><strong>IEEE Transactions on Neural Networks and Learning Systems, 2017</strong></em> <strong><font color="#ff0000"></font></strong> <br>
+                [<a href="http://www.cse.fau.edu/~xqzhu/papers/TNN.Wang.2017.Forest.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('wang2017novel')">Bib</a>]<br>
+                <pre style="display: none">
+                      @article{wang2017novel,
+                        title={A novel consistent random forest framework: Bernoulli random forests},
+                        author={Wang, Yisen and Xia, Shu-Tao and Tang, Qingtao and Wu, Jia and Zhu, Xingquan},
+                        journal={IEEE Transactions on Neural Networks and Learning Systems},
+                        volume={29},
+                        number={8},
+                        pages={3510--3523},
+                        year={2017},
+                        publisher={IEEE}}
+                </li>
+              </ul>
+              </div>
+            </div>
+
+        </div>
+
+
+        </div>  <!-- content -->
+
+        <div class="content front">
+          <div class="text">
+            <h3 style="margin-bottom:.5em">Talks</h3>
+            <ul>
+              <li>Invited Talk, <a href="https://practical-dl.github.io/2022/index" target="_blank">AAAI 2022 Workshop on Practical Deep Learning in the Wild</a></li>
+              <li>Panelist, <a href="https://advml-workshop.github.io/icml2021/" target="_blank">ICML 2021 Workshop on Adversarial Machine Learning</a></li>
+              <li>Invited Talk, <a href="https://aisecure-workshop.github.io/amlcvpr2021/" target="_blank">CVPR 2021 Workshop on Adversarial Machine Learning in Real-World Computer Vision Systems and Online Challenges (AML-CV)</a></li>
+              <li>Panelist, <a href="http://valser.org/2021/#/workshopde?id=6" target="_blank">VALSE 2021 Workshop on Frontiers of Machine Learning </a></li>
+              <li>Keynote & Chair, <a href="https://event.baai.ac.cn/activities/131" target="_blank">BAAI Seminar for Pretalk of ICLR 2021 in China</a></li>
+              <li>Invited Talk, <a href="https://ccfai2021.ytu.edu.cn/xsztlt.htm" target="_blank">CCFAI 2021 Young Scholars Forum</a></li>
+              <li>Invited Talk, <a href="http://csee.hnu.edu.cn/ccdm2020/xsztlt.html" target="_blank">CCDM 2020 Workshop on Data Mining and Learning</a></li>
+              <li>Guest Lecture, <a href="https://courses.grainger.illinois.edu/cs498lb1/sp2021/" target="_blank">CS498: Trustworthy Machine Learning@UIUC </a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content front">
+          <div class="text">
+            <h3 style="margin-bottom:.5em">Awards</h3>
+            <ul>
+                <li><a href="https://2021.ecmlpkdd.org/?page_id=2148" target="_blank">Best (Student) Paper Award</a>, ECML-PKDD 2021 (1/685)&nbsp;</li>
+                <li><a href="https://advml-workshop.github.io/icml2021/" target="_blank">Silver Best Paper Award</a>, ICML 2021 Workshop on Adversarial Machine Learning</li>
+                <li><a href="https://ml.cs.tsinghua.edu.cn/adv-bench/#/" target="_blank">1st Place Defense Method</a>, CVPR 2021 Competition of White-box Adversarial Attacks on ML Defense Models </li>
+                <li><a href="http://hof.geekpwn.org/zh/index.html" target="_blank">First Prize</a>, 2020 GeekPwn CAAD AI MASK Competitions </li>
+                <li><a href="http://scholarship.baidu.com/" target="_blank">Baidu Scholarship</a> (only 10 world-wide per year)&nbsp;</li>
+                <li><a href="http://www.acmturc.com/2020/cn/doctoral_thesis_award.html" target="_blank">ACM China Doctoral Dissertation Nomination Award</a> (only 5 nation-wide per year)</li>
+                <li>Tsinghua University Outstanding Doctoral Dissertation Award</li>
+                <li><a href="https://www.msra.cn/zh-cn/connections/academic-programs/fellows" target="_blank">Microsoft Research Fellowship Nomination Award</a></li>
+                <li><a href="http://phdforum.se.cuhk.edu.hk/2016/content/bestpaper.html" target="_blank">Best Paper Award</a>, 9th International Doctoral Forum (Hong Kong)</li>
+                <li>National Scholarship for Ph.D. Student</li>
+                <li>Lixin Tang Scholarship of Tsinghua University</li>
+                <li>Top 10 Undergraduate Excellence Award (only 10 awardees university-wide per year)</li>
+                <li>Meritorious Winner (First Prize) of MCM: The Mathematical Contest in Modeling</li>
+                <li>National Scholarship for Undergraduate Student</li>
+              </ul>
+          </div>
+        </div>
+
+
+      </div> <!-- container -->
+
+
+
+
+    </div> <!-- outer container -->
+
+    <script>var scroll = new SmoothScroll('a[href*="#"]', {speed: 1000});</script>
+    <script>showPubs(0);</script>
+
+
+  </body>
+
+</html>
