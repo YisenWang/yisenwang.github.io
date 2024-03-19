@@ -55,7 +55,7 @@ function showPubs(id) {
     document.getElementById('select1').style = '';
     document.getElementById('select2').style = '';
   } else if (id == 1) {
-    years = ["Preprint", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
+    years = ["2024", "2023", "2022", "2021", "2020", "2019", "2018"];
     html = "";
     for(var k=0; k<years.length; k++){
         year = years[k];
@@ -169,7 +169,7 @@ function togglebib(paperid)
               I have visited <a href="https://www.gatech.edu/">Georgia Tech</a>, USA, hosted by <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&hl=en" target="_blank">Prof. Le Song</a> and <a href="https://www.cc.gatech.edu/~zha/" target="_blank">Prof. Hongyuan Zha</a>, and <a href="https://www.unimelb.edu.au/">The University of Melbourne</a>, Australia, hosted by <a href="https://people.eng.unimelb.edu.au/baileyj/" target="_blank">Prof. James Bailey</a>.
             </p>
 
-            <p style="text-align: justify;">My research interest is broadly the <strong>Robust Representation Learning from various types of data</strong> (unlabeled/noisy/adversarial data, structured data like graph, etc.). Specifically, we recently focus on theoretical and algorithmic approaches for <strong>Self-Supervised/Weakly-Supervised Learning</strong>, <strong>Safety of Foundation Models (Large Language Model, Diffusion Model)</strong>, and <strong>Graph Learning</strong>.
+            <p style="text-align: justify;">My research interest is broadly the <strong>robust representation learning from various types of data</strong> (unlabeled/noisy/adversarial data, structured data like graph, etc.). Specifically, we recently focus on theoretical and algorithmic approaches for <strong>self-supervised/weakly-supervised learning</strong>, <strong>trustworthy machine learning</strong>, and <strong>graph learning</strong>.
             </p>
 
             <p style="text-align: justify;">We have received the <strong><a href="https://2021.ecmlpkdd.org/index.html@p=2148.html" target="_blank">Best Paper Award</a> of ECML-PKDD 2021</strong>, <strong><a href="https://advml-workshop.github.io/icml2021/" target="_blank">Silver Best Paper Award</a> of ICML 2021 Workshop on Adversarial Machine Learning</strong>,
@@ -228,16 +228,11 @@ function togglebib(paperid)
                 <li><strong>Do Generated Data Always Help Contrastive Learning?</strong><br>
                 Yifei Wang, Jizhe Zhang, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="https://openreview.net/pdf?id=S5EqslEHnz" target="_blank">PDF</a>]
-                [<a href="https://github.com/PKU-ML/adainf" target="_blank">Code</a>]
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('wang2024do')">Bib</a>]<br>
                 <pre style="display: none">
-                              @inproceedings{wang2024do,
-                              title={Do Generated Data Always Help Contrastive Learning?},
-                              author={Yifei Wang and Jizhe Zhang and Yisen Wang},
-                              booktitle={ICLR},
-                              year={2024}
-                              }
+
                 </pre>
               </li>
               </ul>
@@ -245,50 +240,23 @@ function togglebib(paperid)
             </div>
 
             <div class="selected 2024 SSL">
-              <div class="text" id="wang2024nonnegative">
+              <div class="text" id="wang2024non">
               <ul>
                 <li><strong>Non-negative Contrastive Learning</strong><br>
                 Yifei Wang, Qi Zhang, Yaoyu Guo, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="https://openreview.net/pdf?id=lNCnZwcH5Z" target="_blank">PDF</a>]
-                [<a href="https://github.com/PKU-ML/non_neg" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('wang2024nonnegative')">Bib</a>]<br>
-                <pre style="display: none">
-                          @inproceedings{wang2024nonnegative,
-                          title={Non-negative Contrastive Learning},
-                          author={Yifei Wang and Qi Zhang and Yaoyu Guo and Yisen Wang},
-                          booktitle={ICLR},
-                          year={2024},
-                          }
-                </pre>
-              </li>
-              </ul>
-              </div>
-            </div>
-
-            <div class="Preprint">
-              <div class="text" id="mo2024studious">
-              <ul>
-                <li><strong>Studious Bob Fight Back Against Jailbreaking via Prompt Adversarial Tuning</strong><br>
-                Yichuan Mo, Yuji Wang, Zeming Wei, <strong>Yisen Wang#</strong><br>
-                <em><strong>Preprint</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://arxiv.org/abs/2402.06255" target="_blank">PDF</a>]
+                [<a href="" target="_blank">PDF</a>]
                 [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024studious')">Bib</a>]<br>
+                [<a href="javascript:togglebib('wang2024non')">Bib</a>]<br>
                 <pre style="display: none">
-                      @article{mo2024studious,
-                        title={Studious bob fight back against jailbreaking via prompt adversarial tuning},
-                        author={Mo, Yichuan and Wang, Yuji and Wei, Zeming and Wang, Yisen},
-                        journal={arXiv preprint arXiv:2402.06255},
-                        year={2024}
-                      }
+
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-            <div class="Preprint">
+            <div class="2023 Adv">
               <div class="text" id="wei2023jailbreak">
               <ul>
                 <li><strong>Jailbreak and Guard Aligned Language Models with Only Few In-Context Demonstrations</strong><br>
@@ -310,24 +278,17 @@ function togglebib(paperid)
               </div>
             </div>
 
-
-
             <div class="selected 2023 Adv">
-              <div class="text" id="li2023advnotrealfeatures">
+              <div class="text" id="li2023adversarial">
               <ul>
                 <li><strong>Adversarial Examples Are Not Real Features</strong><br>
                 Ang Li, Yifei Wang, Yiwen Guo, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/378b284f7f03274d1bf5322bb15c5c16-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/abs/2310.18936" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/AdvNotRealFeatures" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('li2023advnotrealfeatures')">Bib</a>]<br>
+                [<a href="javascript:togglebib('li2023adversarial')">Bib</a>]<br>
                 <pre style="display: none">
-                      @inproceedings{li2023advnotrealfeatures,
-                          title={Adversarial Examples Are Not Real Features},
-                          author={Li, Ang and Wang, Yifei and Guo, Yiwen and Wang, Yisen},
-                          booktitle={NeurIPS},
-                          year={2023}
-                      }
+
                 </pre>
               </li>
               </ul>
@@ -340,7 +301,7 @@ function togglebib(paperid)
                 <li><strong>Balance, Imbalance, and Rebalance: Understanding Robust Overfitting from a Minimax Game Perspective</strong><br>
                 Yifei Wang, Liangchen Li, Jiansheng Yang, Zhouchen Lin, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/32f9049217da6e718a426b07242dff73-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/abs/2310.19360" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/ReBAT" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('wang2023balance')">Bib</a>]<br>
                 <pre style="display: none">
@@ -362,7 +323,7 @@ function togglebib(paperid)
                 <li><strong>Identifiable Contrastive Learning with Automatic Feature Importance Discovery</strong><br>
                 Qi Zhang, Yifei Wang, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/b6a171867138c80de2a35a6125d6757c-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/abs/2310.18904" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/Tri-factor-Contrastive-Learning" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('zhang2023tricontrastive')">Bib</a>]<br>
                 <pre style="display: none">
@@ -384,7 +345,7 @@ function togglebib(paperid)
                 <li><strong>Architecture Matters: Uncovering Implicit Mechanisms in Graph Contrastive Learning</strong><br>
                 Xiaojun Guo, Yifei Wang, Zeming Wei, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/5acf5a0ee5c17d372bfe7fdaeffd6e33-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/abs/2311.02687" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/ArchitectureMattersGCL" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('guo2023architecture')">Bib</a>]<br>
                 <pre style="display: none">
@@ -407,7 +368,7 @@ function togglebib(paperid)
                 <li><strong>Laplacian Canonization: A Minimalist Approach to Sign and Basis Invariant Spectral Embedding</strong><br>
                 Jiangyan Ma, Yifei Wang, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/257b3a7438b1f3709e91a86adf2fdc0a-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/abs/2310.18716" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/LaplacianCanonization" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('ma2023laplacian')">Bib</a>]<br>
                 <pre style="display: none">
@@ -431,16 +392,11 @@ function togglebib(paperid)
                 <li><strong>GEQ: Gaussian Kernel Inspired Equilibrium Models</strong><br>
                 Mingjie Li, <strong>Yisen Wang</strong>, Zhouchen Lin<br>
                 <em><strong>NeurIPS 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2023/file/79cab89b43ac21c6941ad9735df95d30-Paper-Conference.pdf" target="_blank">PDF</a>]
-<!--                [<a href="" target="_blank">Code</a>]-->
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('li2023geq')">Bib</a>]<br>
                 <pre style="display: none">
-                            @inproceedings{li2023geq,
-                              title={GEQ: Gaussian Kernel Inspired Equilibrium Models},
-                              author={Li, Mingjie and Wang, Yisen and Lin, Zhouchen},
-                              booktitle={NeurIPS},
-                              year={2023}
-                            }
+
                 </pre>
               </li>
               </ul>
@@ -453,7 +409,7 @@ function togglebib(paperid)
                 <li><strong>On the Generalization of Multimodal Contrastive Learning</strong><br>
                 Qi Zhang*, Yifei Wang*, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICML 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://proceedings.mlr.press/v202/zhang23an/zhang23an.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/pdf/2306.04272.pdf" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/CLIP-Help-SimCLR" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('zhang2023on')">Bib</a>]<br>
                 <pre style="display: none">
@@ -474,7 +430,7 @@ function togglebib(paperid)
                 <li><strong>Rethinking Weak Supervision in Helping Contrastive Learning</strong><br>
                 Jingyi Cui*, Weiran Huang*, Yifei Wang*, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICML 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://proceedings.mlr.press/v202/cui23a/cui23a.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/pdf/2306.04160.pdf" target="_blank">PDF</a>]
 <!--                [<a href="" target="_blank">Code</a>]-->
                 [<a href="javascript:togglebib('cui2023rethinking')">Bib</a>]<br>
                 <pre style="display: none">
@@ -497,7 +453,7 @@ function togglebib(paperid)
                 <li><strong>Generalist: Decoupling Natural and Robust Generalization</strong><br>
                 Hongjun Wang, <strong>Yisen Wang#</strong><br>
                 <em><strong>CVPR 2023</strong></em> <strong><font color="#ff0000">(Highlight, Top 2.5%)</font></strong> <br>
-                [<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Generalist_Decoupling_Natural_and_Robust_Generalization_CVPR_2023_paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/pdf/2303.13813.pdf" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/Generalist" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('wang2023simple')">Bib</a>]<br>
                 <pre style="display: none">
@@ -518,7 +474,7 @@ function togglebib(paperid)
                 <li><strong>CFA: Class-wise Calibrated Fair Adversarial Training</strong><br>
                 Zeming Wei, Yifei Wang, Yiwen Guo, <strong>Yisen Wang#</strong><br>
                 <em><strong>CVPR 2023</strong></em> <strong><font color="#ff0000"></font></strong> <br>
-                [<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_CFA_Class-Wise_Calibrated_Fair_Adversarial_Training_CVPR_2023_paper.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/pdf/2303.14460.pdf" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/CFA" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('wei2023cfa')">Bib</a>]<br>
                 <pre style="display: none">
@@ -755,8 +711,8 @@ function togglebib(paperid)
                 <li><strong>How Mask Matters: Towards Theoretical Understandings of Masked Autoencoders</strong><br>
                 Qi Zhang*, Yifei Wang*, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2022/file/adb2075b6dd31cb18dfa727240d2887e-Paper-Conference.pdf" target="_blank">PDF</a>]
-                [<a href="https://github.com/PKU-ML/U-MAE" target="_blank">Code</a>]
+                [<a href="https://arxiv.org/pdf/2210.08344.pdf" target="_blank">PDF</a>] 
+                [<a href="https://github.com/zhangq327/U-MAE" target="_blank">Code</a>] 
                 [<a href="javascript:togglebib('zhang2022mask')">Bib</a>]<br>
                 <pre style="display: none">
                     @inproceedings{zhang2022mask,
@@ -788,8 +744,8 @@ function togglebib(paperid)
                 <li><strong>When Adversarial Training Meets Vision Transformers: Recipes from Training to Architecture</strong><br>
                 Yichuan Mo, Dongxian Wu, Yifei Wang, Yiwen Guo, <strong>Yisen Wang#</strong> <br>
                 <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2022/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf" target="_blank">PDF</a>]
-                [<a href="https://github.com/PKU-ML/When-Adversarial-Training-Meets-Vision-Transformers" target="_blank">Code</a>]
+                [<a href="https://arxiv.org/pdf/2210.07540.pdf" target="_blank">PDF</a>]
+                [<a href="https://github.com/mo666666/When-Adversarial-Training-Meets-Vision-Transformers" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('mo2022adversarial')">Bib</a>]<br>
                 <pre style="display: none">
                     @inproceedings{mo2022adversarial,
@@ -809,7 +765,7 @@ function togglebib(paperid)
                 <li><strong>Improving Out-of-Distribution Generalization by Adversarial Training with Structured Priors</strong><br>
                 Qixun Wang*, Yifei Wang*, Hong Zhu, <strong>Yisen Wang#</strong> <br>
                 <em><strong>NeurIPS 2022</strong></em> <strong><font color="#ff0000">(Spotlight, Top 5%)</font></strong><br>
-                [<a href="https://papers.nips.cc/paper_files/paper/2022/file/adc98a266f45005c403b8311ca7e8bd7-Paper-Conference.pdf" target="_blank">PDF</a>]
+                [<a href="https://arxiv.org/pdf/2210.06807.pdf" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/AT-for-OOD" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('wang2022improving')">Bib</a>]<br>
                 <pre style="display: none">
@@ -824,45 +780,45 @@ function togglebib(paperid)
               </div>
             </div>
 
-<!--            <div class="2022 SSL">-->
-<!--              <div class="text" id="cui2022aggnce">-->
-<!--              <ul>-->
-<!--                <li><strong>AggNCE: Asymptotically Identifiable Contrastive Learning</strong><br>-->
-<!--                Jingyi Cui*, Weiran Huang*, Yifei Wang, <strong>Yisen Wang#</strong> <br>-->
-<!--                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000">(Oral)</font></strong><br>-->
-<!--                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_68.pdf" target="_blank">PDF</a>]-->
-<!--                [<a href="javascript:togglebib('cui2022aggnce')">Bib</a>]<br>-->
-<!--                <pre style="display: none">-->
-<!--                    @inproceedings{cui2022aggnce,-->
-<!--                      title={AggNCE: Asymptotically Identifiable Contrastive Learning},-->
-<!--                      author={Cui, Jingyi and Huang, Weiran and Wang, Yifei and Wang, Yisen},-->
-<!--                      booktitle={NeurIPS Workshop},-->
-<!--                      year={2022}}-->
-<!--                </pre>-->
-<!--              </li>-->
-<!--              </ul>-->
-<!--              </div>-->
-<!--            </div>-->
+            <div class="2022 SSL">
+              <div class="text" id="cui2022aggnce">
+              <ul>
+                <li><strong>AggNCE: Asymptotically Identifiable Contrastive Learning</strong><br>
+                Jingyi Cui*, Weiran Huang*, Yifei Wang, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000">(Oral)</font></strong><br>
+                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_68.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('cui2022aggnce')">Bib</a>]<br>
+                <pre style="display: none">
+                    @inproceedings{cui2022aggnce,
+                      title={AggNCE: Asymptotically Identifiable Contrastive Learning},
+                      author={Cui, Jingyi and Huang, Weiran and Wang, Yifei and Wang, Yisen},
+                      booktitle={NeurIPS Workshop},
+                      year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
 
-<!--            <div class="2022 SSL">-->
-<!--              <div class="text" id="du2022variational">-->
-<!--              <ul>-->
-<!--                <li><strong>Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning</strong><br>-->
-<!--                Tianqi Du*, Yifei Wang*, Weiran Huang, <strong>Yisen Wang#</strong> <br>-->
-<!--                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000"></font></strong><br>-->
-<!--                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_64.pdf" target="_blank">PDF</a>]-->
-<!--                [<a href="javascript:togglebib('du2022variational')">Bib</a>]<br>-->
-<!--                <pre style="display: none">-->
-<!--                      @inproceedings{du2022variational,-->
-<!--                        title={Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning},-->
-<!--                        author={Du, Tianqi and Wang, Yifei and Huang, Weiran and Wang, Yisen},-->
-<!--                        booktitle={NeurIPS Workshop},-->
-<!--                        year={2022}}-->
-<!--                </pre>-->
-<!--              </li>-->
-<!--              </ul>-->
-<!--              </div>-->
-<!--            </div>-->
+            <div class="2022 SSL">
+              <div class="text" id="du2022variational">
+              <ul>
+                <li><strong>Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning</strong><br>
+                Tianqi Du*, Yifei Wang*, Weiran Huang, <strong>Yisen Wang#</strong> <br>
+                <em><strong>NeurIPS 2022 Workshop on Self-Supervised Learning Theory and Practice</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="https://sslneurips22.github.io/paper_pdfs/paper_64.pdf" target="_blank">PDF</a>]
+                [<a href="javascript:togglebib('du2022variational')">Bib</a>]<br>
+                <pre style="display: none">
+                      @inproceedings{du2022variational,
+                        title={Variational Energy-Based Models: A Probabilistic Framework for Contrastive Self-Supervised Learning},
+                        author={Du, Tianqi and Wang, Yifei and Huang, Weiran and Wang, Yisen},
+                        booktitle={NeurIPS Workshop},
+                        year={2022}}
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
 
 
             <div class="2022 Adv">
@@ -1834,14 +1790,12 @@ function togglebib(paperid)
           <div class="text">
             <h3 style="margin-bottom:.5em">Talks</h3>
             <ul>
-              <li>Organizer, <a href="https://set-llm.github.io/" target="_blank">ICLR 2024 Workshop on Secure and Trustworthy Large Language Models</a>, Vienna, Austria</li>
-              <li>Invited Talk, <a href="https://iccv23-arow.github.io/" target="_blank">ICCV 2023 Workshop on Adversarial Robustness In the Real World</a>, Paris, France</li>
-              <li>Invited Talk, <a href="https://trustml.ubc.ca/events/trustml-workshop-ubc-june-2023" target="_blank">TrustML Workshop @UBC</a>, Vancouver, Canada</li>
-              <li>Invited Talk, <a href="http://icig2023.csig.org.cn/workshops/" target="_blank">ICIG 2023 Workshop on Machine Vision and Learning</a>, Nanjing, China</li>
+              <li>Invited Talk, <a href="https://iccv23-arow.github.io/" target="_blank">ICCV 2023 Workshop on Adversarial Robustness In the Real World, Paris</a></li>
+              <li>Invited Talk, <a href="https://trustml.ubc.ca/events/trustml-workshop-ubc-june-2023" target="_blank">TrustML Workshop @UBC, Canada</a></li>
               <li>Invited Talk, <a href="https://practical-dl.github.io/2022/index" target="_blank">AAAI 2022 Workshop on Practical Deep Learning in the Wild</a></li>
               <li>Panelist, <a href="https://advml-workshop.github.io/icml2021/" target="_blank">ICML 2021 Workshop on Adversarial Machine Learning</a></li>
               <li>Invited Talk, <a href="https://aisecure-workshop.github.io/amlcvpr2021/" target="_blank">CVPR 2021 Workshop on Adversarial Machine Learning in Real-World Computer Vision Systems and Online Challenges (AML-CV)</a></li>
-              <li>Panelist, <a href="http://valser.org/2021/#/workshopde?id=6" target="_blank">VALSE 2021 Workshop on Frontiers of Machine Learning</a></li>
+              <li>Panelist, <a href="http://valser.org/2021/#/workshopde?id=6" target="_blank">VALSE 2021 Workshop on Frontiers of Machine Learning </a></li>
               <li>VALSE Tutorial: Adversarial Attack and Defense</strong> (in Chinese) [<a href="https://www.bilibili.com/video/BV1Pf4y1c7dg/?spm_id_from=333.999.0.0" target="_blank">Video</a>] [<a href="https://mp.weixin.qq.com/s/-lzPJFRmRhgqfJp4ckqMCw" target="_blank">Note</a>]</li>
               <li>Keynote & Chair, <a href="https://event.baai.ac.cn/activities/131" target="_blank">BAAI Seminar for Pretalk of ICLR 2021 in China</a></li>
               <li>Invited Talk, <a href="https://ccfai2021.ytu.edu.cn/xsztlt.htm" target="_blank">CCFAI 2021 Young Scholars Forum</a></li>
@@ -1855,7 +1809,6 @@ function togglebib(paperid)
           <div class="text">
             <h3 style="margin-bottom:.5em">Awards</h3>
             <ul>
-                <li>Supervisor, CAAI Outstanding Ph.D. Dissertation Runner-Up Award (14 nation-wide per year), 2023</li>
                 <li><a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/6" target="_blank">World's Top 2% Scientists</a>, 2023</li>
                 <li>Notable Area Chair, NeurIPS 2023</li>
                 <li>Beijing Nova Talent Program, 2023</li>
