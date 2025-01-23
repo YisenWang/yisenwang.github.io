@@ -55,7 +55,7 @@ function showPubs(id) {
     document.getElementById('select1').style = '';
     document.getElementById('select2').style = '';
   } else if (id == 1) {
-    years = ["Preprint", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
+    years = ["Preprint", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
     html = "";
     for(var k=0; k<years.length; k++){
         year = years[k];
@@ -75,7 +75,7 @@ function showPubs(id) {
     document.getElementById('select2').style = '';
   } else {
     //document.getElementById('pubs').innerHTML = document.getElementById('pubs_by_topic').innerHTML;
-    topics = ["SSL", "Adv", "OOD", "WSL", "Graph", "SNN"];
+    topics = ["SSL", "Adv", "Rea", "Graph"];
     html = "";
     for(var k=0; k<topics.length; k++){
         topic = topics[k];
@@ -136,7 +136,7 @@ function togglebib(paperid)
             <h1>Yisen Wang</h1>
             <p/>
             <div>Assistant Professor, Ph.D. Advisor</div>
-            <div>School of Artificial Intelligence</div>
+            <div>School of Intelligence Science and Technology</div>
             <div>Peking University</div>
             <div>Email: yisen.wang AT pku DOT edu.cn</div>
             <p/>
@@ -153,12 +153,13 @@ function togglebib(paperid)
             <p/>
             <div class="title">Research Topics</div>
             <ul>
-              <li><a id="_SSL" href="#SSL" onclick="showPubs(2)">Theory of Self-Supervised Learning</a></li>
-              <li><a id="_Adv" href="#Adv" onclick="showPubs(2)">Trustworthy Machine Learning</a></li>
-              <li><a id="_OOD" href="#OOD" onclick="showPubs(2)">Out-of-Distribution Generalization</a></li>
-              <li><a id="_WSL" href="#WSL" onclick="showPubs(2)">Weakly-Supervised Learning</a></li>
+              <li><a id="_SSL" href="#SSL" onclick="showPubs(2)">Theory of Learning Paradigm</a></li>
+              <li><a id="_Adv" href="#Adv" onclick="showPubs(2)">AI Safety</a></li>
+              <li><a id="_Rea" href="#Rea" onclick="showPubs(2)">Reasoning in LLMs</a></li>
+<!--              <li><a id="_OOD" href="#OOD" onclick="showPubs(2)">Out-of-Distribution Generalization</a></li>-->
+<!--              <li><a id="_WSL" href="#WSL" onclick="showPubs(2)">Weakly-Supervised Learning</a></li>-->
               <li><a id="_Graph" href="#Graph" onclick="showPubs(2)">Graph Learning</a></li>
-              <li><a id="_SNN" href="#SNN" onclick="showPubs(2)">Spiking Neural Network</a></li>
+<!--              <li><a id="_SNN" href="#SNN" onclick="showPubs(2)">Spiking Neural Network</a></li>-->
             </ul>
             <p/>
           </div>
@@ -169,7 +170,8 @@ function togglebib(paperid)
               I have visited <a href="https://www.gatech.edu/">Georgia Tech</a>, USA, hosted by <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&hl=en" target="_blank">Prof. Le Song</a> and <a href="https://www.cc.gatech.edu/~zha/" target="_blank">Prof. Hongyuan Zha</a>, and <a href="https://www.unimelb.edu.au/">The University of Melbourne</a>, Australia, hosted by <a href="https://people.eng.unimelb.edu.au/baileyj/" target="_blank">Prof. James Bailey</a>.
             </p>
 
-            <p style="text-align: justify;">My research interest is broadly the <strong>Representation Learning</strong>, focusing on extracting meaningful representation from various data types, including unlabeled, noisy, adversarial, and graph data. Specifically, we recently focus on theoretical and algorithmic approaches for <strong>Large Language Models (Self-Supervised/Weakly-Supervised Learning, In-context Learning, Length Generalization)</strong>, <strong>Safety of Foundation Models (Large Language Model, Diffusion Model)</strong>, and <strong>Graph Learning</strong>.
+            <p style="text-align: justify;">My research centers on <span style="color: blue;"><strong>Representation Learning</strong></span>, with a focus on deriving meaningful and robust representations from diverse data types--including unlabeled, noisy, and adversarial data--grounded in principled and theoretically driven methodologies.
+              Specifically, we recently focus on <span style="color: blue;"><strong>Theoretical and Algorithmic Foundations of LLMs</strong></span> (e.g., Self-Supervised/Weakly-Supervised Learning, In-context Learning, Length Generalization, and Reasoning) and <span style="color: blue;"><strong>AI Safety</strong></span> (ensuring Trustworthy and Reliable AI Systems).
             </p>
 
             <p style="text-align: justify;">We have received the <strong><a href="https://2021.ecmlpkdd.org/index.html@p=2148.html" target="_blank">Best Paper Award</a> of ECML-PKDD 2021</strong>, <strong><a href="https://iclworkshop.github.io/" target="_blank">Best Paper Award</a> of ICML 2024 Workshop</strong>, <strong><a href="https://advml-workshop.github.io/icml2021/" target="_blank">Silver Best Paper Award</a> of ICML 2021 Workshop</strong>,
@@ -193,8 +195,9 @@ function togglebib(paperid)
           <div class="text">
             <h3 style="margin-bottom:.5em; text-align:justify">News</h3>
             <ul>
-              <li>2024.6, We released <a href="https://github.com/PKU-ML/ISSLLib"><strong>Interpretable Self-Supervised Learning Library</strong></a> to cover all interpretable-related algorithms of our group!</li>
-              <li>2024.5, We released <a href="https://github.com/PKU-ML/TMLlib"><strong>Trustworthy Machine Learning Library</strong></a> to cover all trustworthy-related algorithms of our group!</li>
+              <li>2024.12, My PhD student won the CAA Outstanding Ph.D. Dissertation Award!</li>
+              <li>2024.6, We released <a href="https://github.com/PKU-ML/ISSLLib" target="_blank"><strong>Interpretable Self-Supervised Learning Library</strong></a> to cover all interpretable-related algorithms of our group!</li>
+              <li>2024.5, We released <a href="https://github.com/PKU-ML/TMLlib" target="_blank"><strong>Trustworthy Machine Learning Library</strong></a> to cover all trustworthy-related algorithms of our group!</li>
               <li>2024.4, Our jailbreaking work (<a href="https://arxiv.org/abs/2310.06387" target="_blank">In-context Attack</a>) has been featured and scaled up by <a href="https://www.anthropic.com/research/many-shot-jailbreaking" target="_blank">Anthropic</a> (Claude 3 Group)!</li>
               <li>2024.3, My PhD student won the CAAI Outstanding Ph.D. Dissertation Runner-Up Award!</li>
               <li>2024.2, My supervised undergraduate student was admitted to the PhD program of UC Berkeley!</li>
@@ -218,17 +221,161 @@ function togglebib(paperid)
     
             <div id="all_pubs" style="display:none">
 
-            <div class="selected 2024 SSL">
-              <div class="text" id="wang2024theoretical">
+              <div class="selected 2025 SSL Rea">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>What is Wrong with Perplexity for Long-context Language Modeling?</strong><br>
+                Lizhe Fang, Yifei Wang, Zhaoyang Liu, Chenheng Zhang, Stefanie Jegelka, Jinyang Gao, Bolin Ding, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL Rea">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>Rethinking Invariance in In-context Learning</strong><br>
+                Lizhe Fang, Yifei Wang, Khashayar Gatmiry, Lei Fang, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL Rea">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>Can In-context Learning Really Generalize to Out-of-distribution Tasks?</strong><br>
+                Qixun Wang, Yifei Wang, <strong>Yisen Wang#</strong>, Xianghua Ying<br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL Rea">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>Projection Head is Secretly an Information Bottleneck</strong><br>
+                Zhuo Ouyang, Kaiwen Hu, Qi Zhang, Yifei Wang, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 Adv">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>SaLoRA: Safety-Alignment Preserved Low-Rank Adaptation</strong><br>
+                Mingjie Li, Wai Man Si, Michael Backes, Yang Zhang, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL Adv">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>Beyond Interpretability: The Gains of Feature Monosemanticity on Model Robustness</strong><br>
+                Qi Zhang, Yifei Wang, Jingyi Cui, Xiang Pan, Qi Lei, Stefanie Jegelka, <strong>Yisen Wang#</strong><br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL Rea">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>TC-MoE: Augmenting Mixture of Experts with Ternary Expert Choice</strong><br>
+                Shen Yan, Xingyan Bin, Sijun Zhang, <strong>Yisen Wang#</strong>, Zhouchen Lin<br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+              <div class="selected 2025 SSL">
+              <div class="text" id="mo2024fight">
+              <ul>
+                <li><strong>Leveraging Flatness to Improve Information-Theoretic Generalization Bounds for SGD</strong><br>
+                Ze Peng, Jian Zhang, <strong>Yisen Wang</strong>, Lei Qi, Yinghuan Shi, Yang Gao<br>
+                <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                [<a href="" target="_blank">PDF</a>]
+                [<a href="" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                <pre style="display: none">
+
+                </pre>
+              </li>
+              </ul>
+              </div>
+            </div>
+
+
+
+            <div class="selected 2024 SSL Rea">
+              <div class="text" id="wang2024a">
               <ul>
                 <li><strong>A Theoretical Understanding of Self-Correction through In-context Alignment</strong><br>
                 Yifei Wang, Yuyang Wu, Zeming Wei, Stefanie Jegelka, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2024</strong></em> <strong><font color="#ff0000">(Best Paper Award at ICML 2024 Workshop on In-Context Learning)</font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=OtvNLTWYww" target="_blank">PDF</a>]
+                [<a href="https://github.com/yifeiwang77/Self-Correction" target="_blank">Code</a>]
+                [<a href="https://mp.weixin.qq.com/s/W-YOehfVSRlYIBlg8itnBg" target="_blank">Featured by Synced</a>]
+                [<a href="javascript:togglebib('wang2024a')">Bib</a>]<br>
                 <pre style="display: none">
-
+                    @inproceedings{wang2024a,
+                            title={A Theoretical Understanding of Self-Correction through In-context Alignment},
+                            author={Yifei Wang and Yuyang Wu and Zeming Wei and Stefanie Jegelka and Yisen Wang},
+                            booktitle={NeurIPS},
+                            year={2024}
+                            }
                 </pre>
               </li>
               </ul>
@@ -236,67 +383,87 @@ function togglebib(paperid)
             </div>
 
             <div class="selected 2024 ADV">
-              <div class="text" id="wang2024theoretical">
+              <div class="text" id="mo2024fight">
               <ul>
                 <li><strong>Fight Back Against Jailbreaking via Prompt Adversarial Tuning</strong><br>
                 Yichuan Mo, Yuji Wang, Zeming Wei, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=nRdST1qifJ" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/PAT" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
                 <pre style="display: none">
-
+                        @inproceedings{mo2024fight,
+                        title={Fight Back Against Jailbreaking via Prompt Adversarial Tuning},
+                        author={Yichuan Mo and Yuji Wang and Zeming Wei and Yisen Wang},
+                        booktitle={NeurIPS},
+                        year={2024}
+                        }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-            <div class="selected 2024 Graph">
-              <div class="text" id="wang2024theoretical">
+            <div class="2024 Graph">
+              <div class="text" id="ma2024a">
               <ul>
                 <li><strong>A Canonization Perspective on Invariant and Equivariant Learning</strong><br>
                 Jiangyan Ma, Yifei Wang, Derek Lim, Stefanie Jegelka, <strong>Yisen Wang#</strong><br>
                 <em><strong>NeurIPS 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=jjcY92FX4R" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/canonicalization" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ma2024a')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{ma2024a,
+                            title={A Canonicalization Perspective on Invariant and Equivariant Learning},
+                            author={George Ma and Yifei Wang and Derek Lim and Stefanie Jegelka and Yisen Wang},
+                            booktitle={NeurIPS},
+                            year={2024}
+                            }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-            <div class="selected 2024 Graph">
-              <div class="text" id="wang2024theoretical">
+            <div class="2024 Graph">
+              <div class="text" id="wang2024dissecting">
               <ul>
                 <li><strong>Dissecting the Failure of Invariant Learning on Graphs</strong><br>
                 Qixun Wang, Yifei Wang, <strong>Yisen Wang#</strong>, Xianghua Ying<br>
                 <em><strong>NeurIPS 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=7eFS8aZHAM" target="_blank">PDF</a>]
+                [<a href="https://github.com/NOVAglow646/NeurIPS24-Invariant-Learning-on-Graphs" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2024dissecting')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @inproceedings{wang2024dissecting,
+                          title={Dissecting the Failure of Invariant Learning on Graphs},
+                          author={Qixun Wang and Yifei Wang and Yisen Wang and Xianghua Ying},
+                          booktitle={NeurIPS},
+                          year={2024}
+                          }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-            <div class="selected 2024 SSL">
-              <div class="text" id="wang2024theoretical">
+            <div class="2024 SSL">
+              <div class="text" id="wang2024understanding">
               <ul>
                 <li><strong>Understanding the Role of Equivariance in Self-supervised Learning</strong><br>
-                Yifei Wang, Kaiwen Hu, Sharut Gupta, Ziyu Ye, <strong>Yisen Wang#</strong>, Stefanie Jegelka<br>
+                Yifei Wang, Kaiwen Hu, Sharut Gupta, Ziyu Ye, <strong>Yisen Wang</strong>, Stefanie Jegelka<br>
                 <em><strong>NeurIPS 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=NLqdudgBfy" target="_blank">PDF</a>]
+                [<a href="https://github.com/kaotty/Understanding-ESSL" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2024understanding')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @inproceedings{wang2024understanding,
+                          title={Understanding the Role of Equivariance in Self-supervised Learning},
+                          author={Yifei Wang and Kaiwen Hu and Sharut Gupta and Ziyu Ye and Yisen Wang and Stefanie Jegelka},
+                          booktitle={NeurIPS},
+                          year={2024}
+                          }
                 </pre>
               </li>
               </ul>
@@ -308,12 +475,17 @@ function togglebib(paperid)
               <ul>
                 <li><strong>Look Ahead or Look Around? A Theoretical Comparison Between Autoregressive and Masked Pretraining</strong><br>
                 Qi Zhang, Tianqi Du, Haotian Huang, Yifei Wang, <strong>Yisen Wang#</strong><br>
-                <em><strong>ICML 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                <em><strong>ICML 2024</strong></em> <span style="color: red;"><strong>(Theoretical Comparisons between GPT and Bert)</strong></span><br>
                 [<a href="https://openreview.net/pdf?id=2rPoTgEmjV" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/LookAheadLookAround" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('du2024on')">Bib</a>]<br>
+                [<a href="javascript:togglebib('zhang2024look')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{zhang2024look,
+                            title={Look Ahead or Look Around? A Theoretical Comparison Between Autoregressive and Masked Pretraining},
+                            author={Qi Zhang and Tianqi Du and Haotian Huang and Yifei Wang and Yisen Wang},
+                            booktitle={ICML},
+                            year={2024}
+                            }
                 </pre>
               </li>
               </ul>
@@ -325,19 +497,24 @@ function togglebib(paperid)
               <ul>
                 <li><strong>PID: Prompt-Independent Data Protection Against Latent Diffusion Models</strong><br>
                 Ang Li, Yichuan Mo, Mingjie Li, <strong>Yisen Wang#</strong><br>
-                <em><strong>ICML 2024</strong></em> <strong><font color="#ff0000"></font></strong><br>
+                <em><strong>ICML 2024</strong></em> <span style="color: red;"><strong>(Unlearning in Diffusion Models)</strong></span> <br>
                 [<a href="https://openreview.net/pdf?id=1N7pjXKkx8" target="_blank">PDF</a>]
                 [<a href="https://github.com/PKU-ML/Diffusion-PID-Protection" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('li2024pid')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{li2024pid,
+                            title={{PID}: Prompt-Independent Data Protection Against Latent Diffusion Models},
+                            author={Ang Li and Yichuan Mo and Mingjie Li and Yisen Wang},
+                            booktitle={ICML},
+                            year={2024}
+                            }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-            <div class="selected 2024 Adv">
+            <div class="2024 Adv">
               <div class="text" id="mo2024terd">
               <ul>
                 <li><strong>TERD: A Unified Framework for Backdoor Defense on Diffusion Model</strong><br>
@@ -347,7 +524,12 @@ function togglebib(paperid)
                 [<a href="https://github.com/PKU-ML/TERD" target="_blank">Code</a>]
                 [<a href="javascript:togglebib('mo2024terd')">Bib</a>]<br>
                 <pre style="display: none">
-
+                        @inproceedings{mo2024terd,
+                        title={{TERD}: A Unified Framework for Safeguarding Diffusion Models Against Backdoors},
+                        author={Yichuan Mo and Hui Huang and Mingjie Li and Ang Li and Yisen Wang},
+                        booktitle={ICML},
+                        year={2024}
+                        }
                 </pre>
               </li>
               </ul>
@@ -644,7 +826,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="selected 2023 SSL WSL">
+            <div class="selected 2023 SSL">
               <div class="text" id="cui2023rethinking">
               <ul>
                 <li><strong>Rethinking Weak Supervision in Helping Contrastive Learning</strong><br>
@@ -905,7 +1087,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="2023 OOD">
+            <div class="2023 SSL">
               <div class="text" id="xin2023domainwise">
               <ul>
                 <li><strong>On the Connection between Invariant Learning and Adversarial Training for Out-of-Distribution Generalization</strong><br>
@@ -979,7 +1161,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="2022 OOD">
+            <div class="2022 SSL">
               <div class="text" id="wang2022improving">
               <ul>
                 <li><strong>Improving Out-of-Distribution Generalization by Adversarial Training with Structured Priors</strong><br>
@@ -1551,7 +1733,7 @@ function togglebib(paperid)
 <!--              </div>-->
 <!--            </div>-->
 
-            <div class="2021 OOD">
+            <div class="2021 SSL">
               <div class="text" id="zhang2021can">
               <ul>
                 <li><strong>Can Subnetwork Structure be the Key to Out-of-Distribution Generalization?</strong>  <br>
@@ -1571,7 +1753,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="2021 WSL">
+            <div class="2021 SSL">
               <div class="text" id="wen2021leveraged">
               <ul>
                 <li><strong>Leveraged Weighted Loss for Partial Label Learning</strong>  <br>
@@ -1715,7 +1897,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="2020 WSL">
+            <div class="2020 SSL">
               <div class="text" id="ma2020normalized">
               <ul>
                 <li><strong>Normalized Loss Functions for Deep Learning with Noisy Labels</strong>  <br>
@@ -1856,7 +2038,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="selected 2019 WSL">
+            <div class="selected 2019 SSL">
               <div class="text" id="wang2019symmetric">
               <ul>
                 <li><strong>Symmetric Cross Entropy for Robust Learning with Noisy Labels</strong>  <br>
@@ -1895,7 +2077,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="selected 2018 WSL">
+            <div class="selected 2018 SSL">
               <div class="text" id="wang2018iterative">
               <ul>
                 <li><strong>Iterative Learning with Open-set Noisy Labels</strong>  <br>
@@ -1915,7 +2097,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="selected 2018 WSL">
+            <div class="selected 2018 SSL">
               <div class="text" id="ma2018dimensionality">
               <ul>
                 <li><strong>Dimensionality-Driven Learning with Noisy Labels</strong>  <br>
@@ -1955,7 +2137,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="2018 WSL">
+            <div class="2018 SSL">
               <div class="text" id="Liu2018DCNets">
               <ul>
                 <li><strong>Decoupled Networks</strong>  <br>
@@ -2046,11 +2228,13 @@ function togglebib(paperid)
           <div class="text">
             <h3 style="margin-bottom:.5em">Awards</h3>
             <ul>
-                <li><a href="https://iclworkshop.github.io/" target="_blank">Spotlight Award (Best Paper)</a>, ICML 2024 Workshop on In-Context Learning</li>
+                <li><a href="https://mp.weixin.qq.com/s/1OhZ3j4XIdLWC8nNPk6P8A" target="_blank">CAA First Prize of Natural Science Award (2/5)</a>, 2024</li>
+                <li><a href="https://mp.weixin.qq.com/s/f3ovMYxcdhWZ8i2Y0PC0KQ" target="_blank">Supervisor of CAA Outstanding Ph.D. Dissertation Award</a>, 2024</li>
+                <li><a href="https://iclworkshop.github.io/" target="_blank">Spotlight Award (Best Paper)</a>, ICML 2024 Workshop on In-Context Learning, 2024</li>
                 <li>Supervisor of Peking University Outstanding Undergraduate Dissertation Award, 2024</li>
-                <li>Supervisor of CAAI Outstanding Ph.D. Dissertation Runner-Up Award (14 nation-wide per year), 2023</li>
-                <li><a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/6" target="_blank">World's Top 2% Scientists</a>, 2023</li>
-                <li><a href="./NeurIPS_Notable_AC.pdf" target="_blank">Notable Area Chair</a>, NeurIPS 2023</li>
+                <li>Supervisor of CAAI Outstanding Ph.D. Dissertation Runner-Up Award, 2023</li>
+                <li><a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/6" target="_blank">World's Top 2% Scientists</a>, 2023/2024</li>
+                <li><a href="./NeurIPS_Notable_AC.pdf" target="_blank">NeurIPS Notable Area Chair</a>, 2023</li>
                 <li>Beijing Nova Talent Program, 2023</li>
                 <li>ACM Beijing Rising Star Award, 2023</li>
                 <li><a href="https://www.cis.pku.edu.cn/info/1082/2638.htm" target="_blank">First Prize</a>, 22nd Teaching Competition&nbsp;of Peking University, 2022</li>
