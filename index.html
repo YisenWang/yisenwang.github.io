@@ -38,63 +38,78 @@ function parseQuery(query) {
 }
 
 function showPubs(id) {
-  if (id == 0) {
-   
-    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_selected').innerHTML;
-    selected = document.getElementsByClassName('selected');
-    temp = "<div class=\"text anchor\">&nbsp;</div>";
-    prefix = "<div class=\"publication\">";
-    suffix = "</div>";
-    for(var i=0;i<selected.length;i++){
-        temp += prefix + selected[i].innerHTML + suffix;
-    }
-    document.getElementById('pubs').innerHTML = temp;
-    //console.log(temp)
-
-    document.getElementById('select0').style = 'text-decoration:underline;color:#000000';
-    document.getElementById('select1').style = '';
-    document.getElementById('select2').style = '';
-  } else if (id == 1) {
-    years = ["Preprint", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
-    html = "";
-    for(var k=0; k<years.length; k++){
-        year = years[k];
-        selected = document.getElementsByClassName(year);
-        temp = "<div class=\"text anchor\"><h4>" + year + "</h4></div>";
-        prefix = "<div class=\"publication\">";
-        suffix = "</div>";
-        for(var i=0;i<selected.length;i++){
+    if (id == 0) {
+        // Recent: 根据自定义的 recent 类来展示论文
+        var recent = document.getElementsByClassName('recent');
+        var temp = "<div class=\"text anchor\">&nbsp;</div>";
+        var prefix = "<div class=\"publication\">";
+        var suffix = "</div>";
+        for (var i = 0; i < recent.length; i++){
+            temp += prefix + recent[i].innerHTML + suffix;
+        }
+        document.getElementById('pubs').innerHTML = temp;
+        document.getElementById('select0').style = 'text-decoration:underline;color:#000000';
+        document.getElementById('select1').style = '';
+        document.getElementById('select2').style = '';
+        document.getElementById('select3').style = '';
+    } else if (id == 1) {
+        // Selected: 和原来一样，展示所有具有 selected 类的论文
+        var selected = document.getElementsByClassName('selected');
+        var temp = "<div class=\"text anchor\">&nbsp;</div>";
+        var prefix = "<div class=\"publication\">";
+        var suffix = "</div>";
+        for (var i = 0; i < selected.length; i++){
             temp += prefix + selected[i].innerHTML + suffix;
         }
-        html += temp;
-    }
-    document.getElementById('pubs').innerHTML = html;
-    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_by_date').innerHTML;
-    document.getElementById('select1').style = 'text-decoration:underline;color:#000000';
-    document.getElementById('select0').style = '';
-    document.getElementById('select2').style = '';
-  } else {
-    //document.getElementById('pubs').innerHTML = document.getElementById('pubs_by_topic').innerHTML;
-    topics = ["SSL", "Adv", "Rea", "Graph"];
-    html = "";
-    for(var k=0; k<topics.length; k++){
-        topic = topics[k];
-        topic_fullname = document.getElementById("_"+topic).innerHTML;
-        selected = document.getElementsByClassName(topic);
-        temp = "<div class=\"text anchor\" id=\"" + topic + "\"><h4>" + topic_fullname + "</h4></div>";
-        prefix = "<div class=\"publication\">";
-        suffix = "</div>";
-        for(var i=0;i<selected.length;i++){
-            temp += prefix + selected[i].innerHTML + suffix;
+        document.getElementById('pubs').innerHTML = temp;
+        document.getElementById('select1').style = 'text-decoration:underline;color:#000000';
+        document.getElementById('select0').style = '';
+        document.getElementById('select2').style = '';
+        document.getElementById('select3').style = '';
+    } else if (id == 2) {
+        // All by date: 和原来一样，根据年份数组遍历展示
+        var years = ["Preprint", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
+        var html = "";
+        for (var k = 0; k < years.length; k++){
+            var year = years[k];
+            var selected = document.getElementsByClassName(year);
+            var temp = "<div class=\"text anchor\"><h4>" + year + "</h4></div>";
+            var prefix = "<div class=\"publication\">";
+            var suffix = "</div>";
+            for (var i = 0; i < selected.length; i++){
+                temp += prefix + selected[i].innerHTML + suffix;
+            }
+            html += temp;
         }
-        html += temp;
+        document.getElementById('pubs').innerHTML = html;
+        document.getElementById('select2').style = 'text-decoration:underline;color:#000000';
+        document.getElementById('select0').style = '';
+        document.getElementById('select1').style = '';
+        document.getElementById('select3').style = '';
+    } else if (id == 3) {
+        // All by topic: 和原来一样，根据主题展示论文
+        var topics = ["SSL", "Adv", "Rea", "Graph"];
+        var html = "";
+        for (var k = 0; k < topics.length; k++){
+            var topic = topics[k];
+            var topic_fullname = document.getElementById("_" + topic).innerHTML;
+            var selected = document.getElementsByClassName(topic);
+            var temp = "<div class=\"text anchor\" id=\"" + topic + "\"><h4>" + topic_fullname + "</h4></div>";
+            var prefix = "<div class=\"publication\">";
+            var suffix = "</div>";
+            for (var i = 0; i < selected.length; i++){
+                temp += prefix + selected[i].innerHTML + suffix;
+            }
+            html += temp;
+        }
+        document.getElementById('pubs').innerHTML = html;
+        document.getElementById('select3').style = 'text-decoration:underline;color:#000000';
+        document.getElementById('select0').style = '';
+        document.getElementById('select1').style = '';
+        document.getElementById('select2').style = '';
     }
-    document.getElementById('pubs').innerHTML = html;
-    document.getElementById('select2').style = 'text-decoration:underline;color:#000000';
-    document.getElementById('select0').style = '';
-    document.getElementById('select1').style = '';
-  }
 }
+
 
 function togglebib(paperid)
 {
@@ -209,9 +224,10 @@ function togglebib(paperid)
           <div class="text front">
             <h3 style="margin-bottom:0em">
               Publications 
-                (<a href="" id="select0" onclick="showPubs(0); return false;">Selected</a> /
-                <a href="" id="select1" onclick="showPubs(1); return false;">All by date</a> /
-                <a href="" id="select2" onclick="showPubs(2); return false;">All by topic</a>)
+                (<a href="" id="select0" onclick="showPubs(0); return false;">Recent</a> /
+                 <a href="" id="select1" onclick="showPubs(1); return false;">Selected</a> /
+                 <a href="" id="select2" onclick="showPubs(2); return false;">All by date</a> /
+                 <a href="" id="select3" onclick="showPubs(3); return false;">All by topic</a>)
             </h3>
             <span class="tag">(* Equal  Contribution and # Corresponding  Author)</span>
           </div>
@@ -221,7 +237,7 @@ function togglebib(paperid)
     
             <div id="all_pubs" style="display:none">
 
-              <div class="selected Preprint Rea">
+              <div class="recent Preprint Rea">
               <div class="text" id="mo2024fight">
               <ul>
                 <li><strong>When More is Less: Understanding Chain-of-Thought Length in LLMs</strong><br>
@@ -239,17 +255,22 @@ function togglebib(paperid)
             </div>
 
 
-              <div class="selected Preprint Rea">
-              <div class="text" id="mo2024fight">
+              <div class="recent Preprint Rea">
+              <div class="text" id="li2025smarter">
               <ul>
                 <li><strong>Are Smarter LLMs Safer? Exploring Safety-Reasoning Trade-offs in Prompting and Fine-Tuning</strong><br>
                 Ang Li, Yichuan Mo, Mingjie Li, Yifei Wang, <strong>Yisen Wang#</strong><br>
                 <em><strong>Preprint</strong></em> <strong><font color="#ff0000"></font></strong><br>
                 [<a href="https://arxiv.org/pdf/2502.09673" target="_blank">PDF</a>]
                 [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="javascript:togglebib('li2025smarter')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @article{li2025smarter,
+                            title={Are Smarter LLMs Safer? Exploring Safety-Reasoning Trade-offs in Prompting and Fine-Tuning},
+                            author={Li, Ang and Mo, Yichuan and Li, Mingjie and Wang, Yifei and Wang, Yisen},
+                            journal={arXiv preprint arXiv:2502.09673},
+                            year={2025}
+                          }
                 </pre>
               </li>
               </ul>
@@ -257,51 +278,66 @@ function togglebib(paperid)
             </div>
 
 
-              <div class="selected 2025 SSL Rea">
-              <div class="text" id="mo2024fight">
+              <div class="recent selected 2025 SSL Rea">
+              <div class="text" id="fang2025what">
               <ul>
                 <li><strong>What is Wrong with Perplexity for Long-context Language Modeling?</strong><br>
                 Lizhe Fang, Yifei Wang, Zhaoyang Liu, Chenheng Zhang, Stefanie Jegelka, Jinyang Gao, Bolin Ding, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong style="color: red;">(New Reliable Metric for Long-context LLMs)</strong><br>
-                [<a href="https://arxiv.org/pdf/2410.23771" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=fL4qWkSmtM" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/LongPPL" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('fang2025what')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{fang2025what,
+                            title={What is Wrong with Perplexity for Long-context Language Modeling?},
+                            author={Lizhe Fang and Yifei Wang and Zhaoyang Liu and Chenheng Zhang and Stefanie Jegelka and Jinyang Gao and Bolin Ding and Yisen Wang},
+                            booktitle={ICLR},
+                            year={2025}
+                            }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-              <div class="selected 2025 SSL Rea">
-              <div class="text" id="mo2024fight">
+              <div class="2025 SSL Rea">
+              <div class="text" id="fang2025rethinking">
               <ul>
                 <li><strong>Rethinking Invariance in In-context Learning</strong><br>
                 Lizhe Fang, Yifei Wang, Khashayar Gatmiry, Lei Fang, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=q1UyoY3MgJ" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/InvICL" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('fang2025rethinking')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @inproceedings{fang2025rethinking,
+                          title={Rethinking Invariance in In-context Learning},
+                          author={Lizhe Fang and Yifei Wang and Khashayar Gatmiry and Lei Fang and Yisen Wang},
+                          booktitle={ICLR},
+                          year={2025}
+                          }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-              <div class="selected 2025 SSL Rea">
-              <div class="text" id="mo2024fight">
+              <div class="recent selected 2025 SSL Rea">
+              <div class="text" id="wang2025can">
               <ul>
                 <li><strong>Can In-context Learning Really Generalize to Out-of-distribution Tasks?</strong><br>
-                Qixun Wang, Yifei Wang, Xianghua Ying, <strong>Yisen Wang#</strong><br>
+                Qixun Wang, Yifei Wang, Xianghua Ying#, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=INe4otjryz" target="_blank">PDF</a>]
+                [<a href="https://github.com/NOVAglow646/ICL-OOD" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('wang2025can')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @inproceedings{wang2025can,
+                          title={Can In-context Learning Really Generalize to Out-of-distribution Tasks?},
+                          author={Qixun Wang and Yifei Wang and Xianghua Ying and Yisen Wang},
+                          booktitle={ICLR},
+                          year={2025}
+                          }
                 </pre>
               </li>
               </ul>
@@ -309,33 +345,43 @@ function togglebib(paperid)
             </div>
 
               <div class="selected 2025 SSL Rea">
-              <div class="text" id="mo2024fight">
+              <div class="text" id="ouyang2025projection">
               <ul>
                 <li><strong>Projection Head is Secretly an Information Bottleneck</strong><br>
                 Zhuo Ouyang, Kaiwen Hu, Qi Zhang, Yifei Wang, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=L0evcuybH5" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/Projector_Theory" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('ouyang2025projection')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{ouyang2025projection,
+                            title={Projection Head is Secretly an Information Bottleneck},
+                            author={Zhuo Ouyang and Kaiwen Hu and Qi Zhang and Yifei Wang and Yisen Wang},
+                            booktitle={ICLR},
+                            year={2025}
+                            }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-              <div class="selected 2025 Adv">
-              <div class="text" id="mo2024fight">
+              <div class="recent selected 2025 Adv">
+              <div class="text" id="li2025salora">
               <ul>
                 <li><strong>SaLoRA: Safety-Alignment Preserved Low-Rank Adaptation</strong><br>
                 Mingjie Li, Wai Man Si, Michael Backes, Yang Zhang, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=GOoVzE9nSj" target="_blank">PDF</a>]
+                [<a href="https://github.com/homles11/SaLoRA" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('li2025salora')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{li2025salora,
+                            title={SaLo{RA}: Safety-Alignment Preserved Low-Rank Adaptation},
+                            author={Mingjie Li and Wai Man Si and Michael Backes and Yang Zhang and Yisen Wang},
+                            booktitle={ICLR},
+                            year={2025}
+                            }
                 </pre>
               </li>
               </ul>
@@ -343,16 +389,21 @@ function togglebib(paperid)
             </div>
 
               <div class="selected 2025 SSL Adv">
-              <div class="text" id="mo2024fight">
+              <div class="text" id="zhang2025beyond">
               <ul>
                 <li><strong>Beyond Interpretability: The Gains of Feature Monosemanticity on Model Robustness</strong><br>
                 Qi Zhang, Yifei Wang, Jingyi Cui, Xiang Pan, Qi Lei, Stefanie Jegelka, <strong>Yisen Wang#</strong><br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=g6Qc3p7JH5" target="_blank">PDF</a>]
+                [<a href="https://github.com/PKU-ML/Monosemanticity-Robustness" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('zhang2025beyond')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{zhang2025beyond,
+                            title={Beyond Interpretability: The Gains of Feature Monosemanticity on Model Robustness},
+                            author={Qi Zhang and Yifei Wang and Jingyi Cui and Xiang Pan and Qi Lei and Stefanie Jegelka and Yisen Wang},
+                            booktitle={ICLR},
+                            year={2025}
+                            }
                 </pre>
               </li>
               </ul>
@@ -360,33 +411,43 @@ function togglebib(paperid)
             </div>
 
               <div class="selected 2025 SSL Rea">
-              <div class="text" id="mo2024fight">
+              <div class="text" id="yan2025tcmoe">
               <ul>
                 <li><strong>TC-MoE: Augmenting Mixture of Experts with Ternary Expert Choice</strong><br>
-                Shen Yan, Xingyan Bin, Sijun Zhang, <strong>Yisen Wang#</strong>, Zhouchen Lin<br>
+                Shen Yan, Xingyan Bin, Sijun Zhang, <strong>Yisen Wang#</strong>, Zhouchen Lin#<br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=dsP91M4hDL" target="_blank">PDF</a>]
+                [<a href="https://github.com/stiger1000/TC-MoE" target="_blank">Code</a>]
+                [<a href="javascript:togglebib('yan2025tcmoe')">Bib</a>]<br>
                 <pre style="display: none">
-
+                            @inproceedings{yan2025tcmoe,
+                            title={{TC}-MoE: Augmenting Mixture of Experts with Ternary Expert Choice},
+                            author={Shen Yan and Xingyan Bin and Sijun Zhang and Yisen Wang and Zhouchen Lin},
+                            booktitle={ICLR},
+                            year={2025}
+                            }
                 </pre>
               </li>
               </ul>
               </div>
             </div>
 
-              <div class="selected 2025 SSL">
-              <div class="text" id="mo2024fight">
+              <div class="2025 SSL">
+              <div class="text" id="peng2025leveraging">
               <ul>
                 <li><strong>Leveraging Flatness to Improve Information-Theoretic Generalization Bounds for SGD</strong><br>
                 Ze Peng, Jian Zhang, <strong>Yisen Wang</strong>, Lei Qi, Yinghuan Shi, Yang Gao<br>
                 <em><strong>ICLR 2025</strong></em> <strong><font color="#ff0000"></font></strong><br>
-                [<a href="" target="_blank">PDF</a>]
-                [<a href="" target="_blank">Code</a>]
-                [<a href="javascript:togglebib('mo2024fight')">Bib</a>]<br>
+                [<a href="https://openreview.net/pdf?id=pSdE7PIA64" target="_blank">PDF</a>]
+<!--                [<a href="" target="_blank">Code</a>]-->
+                [<a href="javascript:togglebib('peng2025leveraging')">Bib</a>]<br>
                 <pre style="display: none">
-
+                          @inproceedings{peng2025leveraging,
+                          title={Leveraging Flatness to Improve Information-Theoretic Generalization Bounds for {SGD}},
+                          author={Ze Peng and Jian Zhang and Yisen Wang and Lei Qi and Yinghuan Shi and Yang Gao},
+                          booktitle={ICLR},
+                          year={2025}
+                          }
                 </pre>
               </li>
               </ul>
@@ -418,7 +479,7 @@ function togglebib(paperid)
               </div>
             </div>
 
-            <div class="selected 2024 ADV">
+            <div class="selected 2024 Adv">
               <div class="text" id="mo2024fight">
               <ul>
                 <li><strong>Fight Back Against Jailbreaking via Prompt Adversarial Tuning</strong><br>
@@ -641,23 +702,6 @@ function togglebib(paperid)
               </ul>
               </div>
             </div>
-
-<!--            <div class="Preprint">-->
-<!--              <div class="text" id="">-->
-<!--              <ul>-->
-<!--                <li><strong>A Theoretical Understanding of Self-Correction through In-context Alignment</strong><br>-->
-<!--                Yifei Wang, Yuyang Wu, Zeming Wei, Stefanie Jegelka, <strong>Yisen Wang#</strong><br>-->
-<!--                <em><strong>Preprint</strong></em> <strong style="color: red;">(Spotlight Award (Best Paper) at ICML 2024 Workshop)</strong> <br>-->
-<!--                [<a href="https://arxiv.org/pdf/2405.18634" target="_blank">PDF</a>]-->
-<!--                [<a href="" target="_blank">Code</a>]-->
-<!--                [<a href="javascript:togglebib('')">Bib</a>]<br>-->
-<!--                <pre style="display: none">-->
-
-<!--                </pre>-->
-<!--              </li>-->
-<!--              </ul>-->
-<!--              </div>-->
-<!--            </div>-->
 
             <div class="selected Preprint">
               <div class="text" id="wei2023jailbreak">
