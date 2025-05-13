@@ -134,6 +134,50 @@ function togglebib(paperid)
 
 </script>
 
+<style>
+    .collapsible li {
+      display: none;
+    }
+    /* 默认只显示前 5 项 + toggle-item */
+    .collapsible li:nth-child(-n+5),
+    .collapsible li.toggle-item {
+      display: list-item;
+    }
+    /* 展开后，所有项都显示 */
+    .collapsible.expanded li {
+      display: list-item;
+    }
+    /* 隐藏 toggle-item 的列表标记符 */
+    .toggle-item {
+      list-style: none;
+      text-align: left;
+      margin-left: -5px;
+    }
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #0066cc;
+      cursor: pointer;
+      font-size: .9em;
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function setupCollapsible(listId) {
+        var list = document.getElementById(listId);
+        var btn  = list.querySelector('.toggle-btn');
+        btn.addEventListener('click', function() {
+          var isExpanded = list.classList.toggle('expanded');
+          btn.textContent = isExpanded ? 'Collapse' : 'Expand';
+        });
+      }
+      setupCollapsible('talks-list');
+      setupCollapsible('awards-list');
+    });
+  </script>
+
+
     <script src="js/scroll.js"></script>
 
   </head>
@@ -189,9 +233,9 @@ function togglebib(paperid)
               Specifically, we recently focus on <span style="color: blue;"><strong>Theoretical and Algorithmic Foundations of LLMs</strong></span> (e.g., Self-Supervised/Weakly-Supervised Learning, In-context Learning, Length Generalization, and Reasoning) and <span style="color: blue;"><strong>AI Safety</strong></span> (ensuring Trustworthy and Reliable AI Systems).
             </p>
 
-            <p style="text-align: justify;">We have received the <strong><a href="https://2021.ecmlpkdd.org/index.html@p=2148.html" target="_blank">Best Paper Award</a> of ECML-PKDD 2021</strong>, <strong><a href="https://iclworkshop.github.io/" target="_blank">Best Paper Award</a> of ICML 2024 Workshop</strong>, <strong><a href="https://advml-workshop.github.io/icml2021/" target="_blank">Silver Best Paper Award</a> of ICML 2021 Workshop</strong>, <strong><a href="https://workshop-llm-reasoning-planning.github.io/" target="_blank">Best Paper Runner-Up Award</a> of ICLR 2025 Workshop</strong>,
+            <p style="text-align: justify;">We have received the <strong><a href="https://ecmlpkdd.org/2021/" target="_blank">Best Paper Award</a> of ECML-PKDD 2021</strong>, <strong><a href="https://iclworkshop.github.io/" target="_blank">Best Paper Award</a> of ICML 2024 Workshop</strong>, <strong><a href="https://advml-workshop.github.io/icml2021/" target="_blank">Silver Best Paper Award</a> of ICML 2021 Workshop</strong>, <strong><a href="https://workshop-llm-reasoning-planning.github.io/" target="_blank">Best Paper Runner-Up Award</a> of ICLR 2025 Workshop</strong>,
               <strong><a href="https://ml.cs.tsinghua.edu.cn/adv-bench/#/" target="_blank">1st Place</a> in the CVPR 2021 Adversarial Competitions</strong>, and <strong><a href="http://hof.geekpwn.org/zh/index.html" target="_blank">Champion</a> in the 2020 GeekPwn CAAD Competitions</strong>.
-              We are also lucky to win the <strong><a href="https://www.cis.pku.edu.cn/info/1082/2638.htm" target="_blank">First Prize</a> in the 22nd Teaching Competition of Peking University</strong>, <strong>Beijing Nova Talent Program</strong>, <strong>ACM Beijing Rising Star Award</strong>, <strong>Notable Area Chair at NeurIPS</strong>, and <strong>World's Top 2% Scientists</strong>.
+<!--              We are also lucky to win the <strong><a href="https://www.cis.pku.edu.cn/info/1082/2638.htm" target="_blank">First Prize</a> in the 22nd Teaching Competition of Peking University</strong>, <strong>Beijing Nova Talent Program</strong>, <strong>ACM Beijing Rising Star Award</strong>, <strong>Notable Area Chair at NeurIPS</strong>, and <strong>World's Top 2% Scientists</strong>.-->
             </p>
           </div>
         </div>
@@ -2338,10 +2382,10 @@ function togglebib(paperid)
 
         </div>  <!-- content -->
 
-        <div class="content front">
-          <div class="text">
-            <h3 style="margin-bottom:.5em">Talks</h3>
-            <ul>
+  <div class="content front">
+    <div class="text">
+      <h3 style="margin-bottom:.5em">Talks</h3>
+      <ul id="talks-list" class="collapsible">
               <li>Invited Talk, <a href="https://icml-tifa.github.io/" target="_blank">ICML 2024 Workshop on Trustworthy Multi-modal Foundation Models and AI Agents</a>, Vienna, Austria</li>
               <li>Invited Talk, <a href="https://dl2024.casconf.cn/page/1800418071320596481" target="_blank">International Conference on Mathematical Theory of Deep Learning</a>, Beijing, China</li>
               <li>Invited Talk, <a href="https://valser.org/2024/#/workshopde?id=5" target="_blank">VALSE 2024 Workshop on Model Security</a>, Chongqing, China</li>
@@ -2357,9 +2401,14 @@ function togglebib(paperid)
               <li>Invited Talk, <a href="https://ccfai2021.ytu.edu.cn/xsztlt.htm" target="_blank">CCFAI 2021 Young Scholars Forum</a></li>
               <li>Invited Talk, <a href="http://csee.hnu.edu.cn/ccdm2020/xsztlt.html" target="_blank">CCDM 2020 Workshop on Data Mining and Learning</a></li>
               <li>Guest Lecture, <a href="https://courses.grainger.illinois.edu/cs498lb1/sp2021/" target="_blank">CS498: Trustworthy Machine Learning@UIUC </a></li>
-            </ul>
-          </div>
-        </div>
+
+        <li class="toggle-item">
+          <button class="toggle-btn">Expand</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 
         <div class="content front">
           <div class="text">
@@ -2374,10 +2423,10 @@ function togglebib(paperid)
           </div>
         </div>
 
-        <div class="content front">
-          <div class="text">
-            <h3 style="margin-bottom:.5em">Awards</h3>
-            <ul>
+<div class="content front">
+    <div class="text">
+      <h3 style="margin-bottom:.5em">Awards</h3>
+      <ul id="awards-list" class="collapsible">
                 <li><a href="https://workshop-llm-reasoning-planning.github.io/" target="_blank">Best Paper Runner-Up Award</a>, ICLR 2025 Workshop on Reasoning and Planning for LLMs, 2025</li>
                 <li><a href="https://mp.weixin.qq.com/s/1OhZ3j4XIdLWC8nNPk6P8A" target="_blank">CAA First Prize of Natural Science Award (2/5)</a>, 2024</li>
                 <li><a href="https://mp.weixin.qq.com/s/f3ovMYxcdhWZ8i2Y0PC0KQ" target="_blank">Supervisor of CAA Outstanding Ph.D. Dissertation Award</a>, 2024</li>
@@ -2403,10 +2452,13 @@ function togglebib(paperid)
                 <li>Top 10 Undergraduate Excellence Award (only 10 awardees university-wide per year)</li>
 <!--                <li>Meritorious Winner (First Prize) of MCM: The Mathematical Contest in Modeling</li>-->
 <!--                <li>National Scholarship for Undergraduate Student</li>-->
-              </ul>
-          </div>
-        </div>
 
+        <li class="toggle-item">
+          <button class="toggle-btn">Expand</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 
       </div> <!-- container -->
 
